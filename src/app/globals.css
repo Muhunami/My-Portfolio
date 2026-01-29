@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7f7fb;
+  color: #0b1220;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-gradient {
+  background:
+    radial-gradient(circle at top left, rgba(42, 82, 152, 0.35), transparent 55%),
+    radial-gradient(circle at 70% 20%, rgba(30, 64, 124, 0.4), transparent 50%),
+    linear-gradient(135deg, rgba(13, 27, 51, 0.98), rgba(18, 34, 66, 0.95));
+  background-size: 140% 140%;
+  animation: heroShift 16s ease-in-out infinite;
+}
+
+@keyframes heroShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
