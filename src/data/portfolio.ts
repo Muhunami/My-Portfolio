@@ -17,7 +17,7 @@ export const hero = {
 };
 
 export const about = [
-  "Curiosity is my compass. As a Kenyan high school student, I move between equations, essays, and arguments, learning how technical and human systems shape daily life.",
+  "I lead with questions. As a Kenyan high school student, I move between equations, essays, and arguments, learning how technical and human systems shape daily life.",
   "I build digital tools and write reflective essays because ideas deserve structure. Debate and Model UN (SOCHUM, representing Benin) taught me to argue with care, listen closely, and lead with evidence.",
   "Traveling to the U.S. and visiting Harvard, Yale, Columbia, and MIT expanded my sense of what is possible, while grounding me in the work still needed at home. I value depth over noise and I aim to leave things clearer than I found them.",
 ];
