@@ -9,9 +9,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Carter | Portfolio",
+  title: "Amani Njeri | Portfolio",
   description:
-    "Structured portfolio showcasing achievements, leadership, and technical impact.",
+    "A thoughtful, achievement-focused portfolio blending technology, writing, and global perspective.",
 };
 
 export default function RootLayout({
