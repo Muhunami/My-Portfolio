@@ -31,7 +31,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
             <div className="hero-card glass glass-dark">
               <Reveal delay={0}>
-                <p className="eyebrow">Portfolio</p>
+                <p className="eyebrow hero-eyebrow">Portfolio</p>
               </Reveal>
               <Reveal delay={120}>
                 <h1 className="hero-name">{hero.name}</h1>
@@ -69,7 +69,13 @@ export default function Home() {
             <div className="about-card glass glass-light">
               {about.map((paragraph, index) => (
                 <Reveal key={paragraph} delay={index * 80}>
-                  <p className="body-text">{paragraph}</p>
+                  <p
+                    className={`body-text ${
+                      index === 0 ? "body-text-lead" : "body-text-body"
+                    }`}
+                  >
+                    {paragraph}
+                  </p>
                 </Reveal>
               ))}
             </div>
@@ -89,11 +95,11 @@ export default function Home() {
                   <article className="card glass glass-light card-interactive">
                     <p className="eyebrow accent">{project.category}</p>
                     <h3 className="card-title">{project.title}</h3>
-                    <dl className="card-body">
-                      <div>
-                        <dt className="card-label">What problem it explored</dt>
-                        <dd>{project.problem}</dd>
-                      </div>
+                    <div className="card-hook">
+                      <p className="card-label">What problem it explored</p>
+                      <p className="card-text">{project.problem}</p>
+                    </div>
+                    <dl className="card-body card-details">
                       <div>
                         <dt className="card-label">Why it mattered</dt>
                         <dd>{project.why}</dd>
@@ -122,13 +128,13 @@ export default function Home() {
               title="A journal of questions and clarity"
               description="Reflective essays that explore change, technology, attention, and youth experience."
             />
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="writing-grid mt-10 grid gap-6 md:grid-cols-2">
               {writings.map((item, index) => (
                 <Reveal key={item.title} delay={index * 80}>
                   <article className="card glass glass-light card-writing">
                     <p className="eyebrow">{item.theme}</p>
                     <h3 className="card-title">{item.title}</h3>
-                    <p className="card-text">{item.excerpt}</p>
+                    <p className="card-text card-quote">{item.excerpt}</p>
                   </article>
                 </Reveal>
               ))}
@@ -147,6 +153,7 @@ export default function Home() {
               {journey.map((item, index) => (
                 <Reveal key={item.title} delay={index * 80}>
                   <div className="timeline-item glass glass-light">
+                    <span className="timeline-node" aria-hidden="true" />
                     <p className="eyebrow accent">{item.year}</p>
                     <h3 className="card-title">{item.title}</h3>
                     <p className="card-text">{item.description}</p>
@@ -164,7 +171,7 @@ export default function Home() {
               title="What I care about next"
               description="Principles that guide how I build, learn, and grow."
             />
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="values-grid mt-10 grid gap-6 md:grid-cols-2">
               {values.map((value, index) => (
                 <Reveal key={value.title} delay={index * 80}>
                   <article className="card glass glass-light">
@@ -199,7 +206,7 @@ export default function Home() {
                   </a>
                 </p>
               </div>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="contact-grid mt-6 grid gap-4 md:grid-cols-2">
                 {contactLinks.map((link) => (
                   <a key={link.label} href={link.href} className="contact-link">
                     <div>

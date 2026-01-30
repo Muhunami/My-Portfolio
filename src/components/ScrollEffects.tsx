@@ -7,9 +7,22 @@ export function ScrollEffects() {
     const root = document.documentElement;
     root.classList.add("js-enabled");
 
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     const revealTargets = Array.from(
       document.querySelectorAll<HTMLElement>("[data-reveal]")
     );
+
+    if (prefersReducedMotion) {
+      root.classList.add("reduce-motion");
+      revealTargets.forEach((target) => target.classList.add("is-visible"));
+      return () => {
+        root.classList.remove("js-enabled");
+        root.classList.remove("reduce-motion");
+      };
+    }
 
     const revealObserver = new IntersectionObserver(
       (entries) => {
