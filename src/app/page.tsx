@@ -1,5 +1,6 @@
 import { NavBar } from "@/components/NavBar";
 import { Reveal } from "@/components/Reveal";
+import { ScrollEffects } from "@/components/ScrollEffects";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
   about,
@@ -16,90 +17,97 @@ import {
 
 export default function Home() {
   return (
-    <div className="bg-off-white text-slate-900">
+    <div className="page-shell">
+      <ScrollEffects />
+      <div className="background-layer" aria-hidden="true">
+        <div className="orb orb-blue" data-parallax="0.08" />
+        <div className="orb orb-red" data-parallax="0.05" />
+        <div className="orb orb-blue-secondary" data-parallax="0.03" />
+        <div className="noise-layer" />
+      </div>
       <NavBar name={hero.name} sections={navSections} />
-      <main>
-        <section
-          id="hero"
-          className="relative flex min-h-screen items-center overflow-hidden"
-        >
-          <div className="absolute inset-0 hero-gradient" />
-          <div className="relative mx-auto flex w-full max-w-6xl flex-col px-6 py-20 text-white">
-            <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/70">
-                {hero.name}
-              </p>
-            </Reveal>
-            <Reveal>
-              <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
-                {hero.headline}
-              </h1>
-            </Reveal>
-            <Reveal>
-              <p className="mt-4 text-sm font-semibold uppercase tracking-[0.35em] text-white/70">
-                {hero.label}
-              </p>
-              <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
-                {hero.summary}
-              </p>
-            </Reveal>
+      <main className="relative z-10">
+        <section id="hero" className="hero-section">
+          <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+            <div className="hero-card glass glass-dark">
+              <Reveal delay={0}>
+                <p className="eyebrow">Portfolio</p>
+              </Reveal>
+              <Reveal delay={120}>
+                <h1 className="hero-name">{hero.name}</h1>
+              </Reveal>
+              <Reveal delay={200}>
+                <p className="hero-tagline">{hero.headline}</p>
+              </Reveal>
+              <Reveal delay={260}>
+                <p className="hero-summary">{hero.summary}</p>
+              </Reveal>
+              <Reveal delay={320}>
+                <p className="hero-label">{hero.label}</p>
+              </Reveal>
+              <Reveal delay={380}>
+                <div className="hero-actions">
+                  <a className="btn-primary" href="#work">
+                    Explore work
+                  </a>
+                  <a className="btn-secondary" href="#writing">
+                    Read ideas
+                  </a>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
 
-        <section id="about" className="bg-white py-16 md:py-24">
+        <section id="about" className="section section-light">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               eyebrow="About"
               title="Curiosity with structure"
               description="A narrative shaped by logic, reflection, and a global point of view."
             />
-            <div className="mt-10 space-y-6 text-base leading-relaxed text-slate-600 md:text-lg">
-              {about.map((paragraph) => (
-                <Reveal key={paragraph}>
-                  <p>{paragraph}</p>
+            <div className="about-card glass glass-light">
+              {about.map((paragraph, index) => (
+                <Reveal key={paragraph} delay={index * 80}>
+                  <p className="body-text">{paragraph}</p>
                 </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="work" className="bg-off-white py-16 md:py-24">
+        <section id="work" className="section section-muted">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
-              eyebrow="Work"
-              title="Projects that carry meaning"
-              description="Every build explores a question, solves a real problem, and reveals how I think."
+              eyebrow="Projects"
+              title="Work that carries meaning"
+              description="Each build explores a real question and reflects how I think about systems."
             />
             <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {projects.map((project) => (
-                <Reveal key={project.title}>
-                  <article className="rounded-2xl border border-brand-blue/20 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1">
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-red">
-                      {project.category}
-                    </p>
-                    <h3 className="mt-3 text-xl font-semibold text-brand-blue">
-                      {project.title}
-                    </h3>
-                    <dl className="mt-4 space-y-4 text-sm text-slate-600">
+              {projects.map((project, index) => (
+                <Reveal key={project.title} delay={index * 80}>
+                  <article className="card glass glass-light card-interactive">
+                    <p className="eyebrow accent">{project.category}</p>
+                    <h3 className="card-title">{project.title}</h3>
+                    <dl className="card-body">
                       <div>
-                        <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                          What problem it explored
-                        </dt>
-                        <dd className="mt-1">{project.problem}</dd>
+                        <dt className="card-label">What problem it explored</dt>
+                        <dd>{project.problem}</dd>
                       </div>
                       <div>
-                        <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                          Why it mattered
-                        </dt>
-                        <dd className="mt-1">{project.why}</dd>
+                        <dt className="card-label">Why it mattered</dt>
+                        <dd>{project.why}</dd>
                       </div>
                       <div>
-                        <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                        <dt className="card-label">
                           What it says about how I think
                         </dt>
-                        <dd className="mt-1">{project.mindset}</dd>
+                        <dd>{project.mindset}</dd>
                       </div>
                     </dl>
+                    <a className="text-link" href={project.link}>
+                      {project.linkLabel}
+                    </a>
                   </article>
                 </Reveal>
               ))}
@@ -107,26 +115,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="writing" className="bg-white py-16 md:py-24">
+        <section id="writing" className="section section-light">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               eyebrow="Writing & Ideas"
               title="A journal of questions and clarity"
-              description="Reflective essays that trace how change, technology, and youth experience shape one another."
+              description="Reflective essays that explore change, technology, attention, and youth experience."
             />
             <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {writings.map((item) => (
-                <Reveal key={item.title}>
-                  <article className="rounded-2xl border border-slate-200 bg-off-white p-6 transition duration-300 hover:-translate-y-1">
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-blue">
-                      {item.theme}
-                    </p>
-                    <h3 className="mt-3 text-xl font-semibold text-slate-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm text-slate-600">
-                      {item.excerpt}
-                    </p>
+              {writings.map((item, index) => (
+                <Reveal key={item.title} delay={index * 80}>
+                  <article className="card glass glass-light card-writing">
+                    <p className="eyebrow">{item.theme}</p>
+                    <h3 className="card-title">{item.title}</h3>
+                    <p className="card-text">{item.excerpt}</p>
                   </article>
                 </Reveal>
               ))}
@@ -134,35 +136,28 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="journey" className="bg-off-white py-16 md:py-24">
+        <section id="journey" className="section section-muted">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               eyebrow="Achievements & Experiences"
               title="A journey still unfolding"
               description="Growth, leadership, and global exposure as steps in a longer story."
             />
-            <ol className="mt-10 border-l border-slate-200 pl-6">
-              {journey.map((item) => (
-                <li key={item.title} className="relative mb-10 last:mb-0">
-                  <span className="absolute -left-[7px] mt-2 h-3 w-3 rounded-full bg-brand-red" />
-                  <Reveal>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-red">
-                      {item.year}
-                    </p>
-                    <h3 className="mt-2 text-lg font-semibold text-brand-blue">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-slate-600">
-                      {item.description}
-                    </p>
-                  </Reveal>
-                </li>
+            <div className="timeline">
+              {journey.map((item, index) => (
+                <Reveal key={item.title} delay={index * 80}>
+                  <div className="timeline-item glass glass-light">
+                    <p className="eyebrow accent">{item.year}</p>
+                    <h3 className="card-title">{item.title}</h3>
+                    <p className="card-text">{item.description}</p>
+                  </div>
+                </Reveal>
               ))}
-            </ol>
+            </div>
           </div>
         </section>
 
-        <section id="values" className="bg-white py-16 md:py-24">
+        <section id="values" className="section section-light">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               eyebrow="Values & Direction"
@@ -170,61 +165,61 @@ export default function Home() {
               description="Principles that guide how I build, learn, and grow."
             />
             <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {values.map((value) => (
-                <Reveal key={value.title}>
-                  <article className="rounded-2xl border border-slate-200 bg-off-white p-6">
-                    <h3 className="text-lg font-semibold text-brand-blue">
-                      {value.title}
-                    </h3>
-                    <p className="mt-3 text-sm text-slate-600">
-                      {value.description}
-                    </p>
+              {values.map((value, index) => (
+                <Reveal key={value.title} delay={index * 80}>
+                  <article className="card glass glass-light">
+                    <h3 className="card-title">{value.title}</h3>
+                    <p className="card-text">{value.description}</p>
                   </article>
                 </Reveal>
               ))}
             </div>
-            <Reveal>
-              <div className="mt-8 rounded-2xl border border-brand-blue/20 bg-white p-6 shadow-soft">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-red">
-                  Direction
-                </p>
-                <p className="mt-3 text-base text-slate-700">{direction}</p>
+            <Reveal delay={200}>
+              <div className="direction-card glass glass-light">
+                <p className="eyebrow accent">Direction</p>
+                <p className="card-text">{direction}</p>
               </div>
             </Reveal>
           </div>
         </section>
 
-        <section id="contact" className="bg-off-white py-16 md:py-24">
+        <section id="contact" className="section section-muted">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               eyebrow="Contact"
               title={contact.title}
               description={contact.description}
             />
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              {contactLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:shadow-soft"
-                >
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-                      {link.label}
-                    </p>
-                    <p className="mt-2 text-sm font-semibold text-brand-blue">
-                      {link.value}
-                    </p>
-                  </div>
-                  <span className="text-xs font-semibold text-brand-red">
-                    View
-                  </span>
-                </a>
-              ))}
+            <div className="contact-card glass glass-light">
+              <div className="contact-details">
+                <p className="card-text">
+                  Email:{" "}
+                  <a className="text-link" href="mailto:muhunanimg@gmail.com">
+                    muhunanimg@gmail.com
+                  </a>
+                </p>
+              </div>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                {contactLinks.map((link) => (
+                  <a key={link.label} href={link.href} className="contact-link">
+                    <div>
+                      <p className="eyebrow">{link.label}</p>
+                      <p className="contact-value">{link.value}</p>
+                    </div>
+                    <span className="contact-action">Open</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
       </main>
+      <footer className="footer glass glass-dark">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 md:flex-row">
+          <span className="footer-name">{hero.name}</span>
+          <span className="footer-email">muhunanimg@gmail.com</span>
+        </div>
+      </footer>
     </div>
   );
 }

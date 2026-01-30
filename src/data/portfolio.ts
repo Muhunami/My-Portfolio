@@ -1,4 +1,5 @@
 export const navSections = [
+  { id: "hero", label: "Home" },
   { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "writing", label: "Writing" },
@@ -8,33 +9,37 @@ export const navSections = [
 ];
 
 export const hero = {
-  name: "Amani Njeri",
+  name: "Manuel Muhunami",
   label: "Kenyan student / Builder / Debater",
-  headline: "I build ideas - in code, in words, and in conversation.",
+  headline: "I build ideas in code, in words, and in conversation.",
   summary:
-    "I work at the intersection of technology, writing, and global questions, with a focus on clarity, depth, and impact.",
+    "I blend technical rigor with reflective writing and debate to explore how systems shape people and possibility.",
 };
 
 export const about = [
-  "Curiosity has always been my compass. As a Kenyan high school student, I move between equations and essays, learning how technical and human systems shape daily life.",
+  "Curiosity is my compass. As a Kenyan high school student, I move between equations, essays, and arguments, learning how technical and human systems shape daily life.",
   "I build digital tools and write reflective essays because ideas deserve structure. Debate and Model UN (SOCHUM, representing Benin) taught me to argue with care, listen closely, and lead with evidence.",
-  "Traveling to the U.S. and visiting Harvard, Yale, Columbia, and MIT expanded my sense of what is possible, while grounding me in the work still needed at home. I value depth over noise, and I aim to leave things clearer than I found them.",
+  "Traveling to the U.S. and visiting Harvard, Yale, Columbia, and MIT expanded my sense of what is possible, while grounding me in the work still needed at home. I value depth over noise and I aim to leave things clearer than I found them.",
 ];
 
 export const projects = [
   {
-    title: "Nyota Study Planner",
+    title: "SomaFocus Study Planner",
     category: "Website & Tool",
-    problem: "Students needed a simple way to plan study time without stress.",
-    why: "It helped classmates build consistent routines instead of cramming.",
+    problem: "Students needed a simple way to plan revision without burnout.",
+    why: "It helped classmates build consistent routines instead of last-minute pressure.",
     mindset: "I believe good systems reduce anxiety and make effort sustainable.",
+    linkLabel: "Request access",
+    link: "mailto:muhunanimg@gmail.com?subject=SomaFocus%20Study%20Planner",
   },
   {
-    title: "Youth Signal Blog",
+    title: "Signal Notes",
     category: "Blog & Community",
-    problem: "Youth voices on technology and society were scattered.",
-    why: "A focused space made reflection feel public and shared.",
+    problem: "Youth voices on technology and society were scattered and shallow.",
+    why: "A focused space made reflection feel public, thoughtful, and shared.",
     mindset: "I see writing as infrastructure for collective thinking.",
+    linkLabel: "View essays",
+    link: "mailto:muhunanimg@gmail.com?subject=Signal%20Notes%20Essays",
   },
   {
     title: "SOCHUM Position Paper: Benin",
@@ -42,13 +47,17 @@ export const projects = [
     problem: "Global health debates often skip local realities.",
     why: "The paper centered community-led solutions and regional context.",
     mindset: "I argue best when I balance policy with people.",
+    linkLabel: "Read the brief",
+    link: "mailto:muhunanimg@gmail.com?subject=SOCHUM%20Position%20Paper",
   },
   {
     title: "Climate Data Story Map",
     category: "Research Project",
-    problem: "Climate data felt abstract for local communities.",
-    why: "Visual storytelling made the trends easier to understand.",
+    problem: "Climate data felt distant for local communities.",
+    why: "Visual storytelling made the trends easier to understand and discuss.",
     mindset: "I use data to bring urgency without losing humanity.",
+    linkLabel: "Explore the map",
+    link: "mailto:muhunanimg@gmail.com?subject=Climate%20Data%20Story%20Map",
   },
 ];
 
@@ -136,7 +145,7 @@ export const values = [
 ];
 
 export const direction =
-  "I'm exploring computer science, physics, and social analysis to understand how systems work - and how to redesign them for fairness, access, and meaning.";
+  "I'm exploring computer science, physics, and social analysis to understand how systems work and how to redesign them for fairness, access, and meaning.";
 
 export const contact = {
   title: "Let's build something thoughtful.",
@@ -147,17 +156,17 @@ export const contact = {
 export const contactLinks = [
   {
     label: "Email",
-    value: "amani.njeri@email.com",
-    href: "mailto:amani.njeri@email.com",
+    value: "muhunanimg@gmail.com",
+    href: "mailto:muhunanimg@gmail.com",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/amaninjeri",
-    href: "https://linkedin.com/in/amaninjeri",
+    value: "linkedin.com/in/manuelmuhunami",
+    href: "https://linkedin.com/in/manuelmuhunami",
   },
   {
     label: "GitHub",
-    value: "github.com/amaninjeri",
-    href: "https://github.com/amaninjeri",
+    value: "github.com/manuelmuhunami",
+    href: "https://github.com/manuelmuhunami",
   },
 ];

@@ -1,28 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
 import type { PropsWithChildren } from "react";
 
 type RevealProps = PropsWithChildren<{
   className?: string;
+  delay?: number;
 }>;
 
-const revealVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0 },
-};
-
-export function Reveal({ children, className }: RevealProps) {
+export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
-    <motion.div
+    <div
+      data-reveal
       className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={revealVariants}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

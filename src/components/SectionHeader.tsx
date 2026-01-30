@@ -8,18 +8,18 @@ type SectionHeaderProps = {
 
 export function SectionHeader({ eyebrow, title, description }: SectionHeaderProps) {
   return (
-    <Reveal>
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-        {eyebrow}
-      </p>
-      <h2 className="mt-3 text-3xl font-semibold text-brand-blue md:text-4xl">
-        {title}
-      </h2>
+    <div className="section-header">
+      <Reveal delay={0}>
+        <p className="eyebrow">{eyebrow}</p>
+      </Reveal>
+      <Reveal delay={80}>
+        <h2 className="section-title">{title}</h2>
+      </Reveal>
       {description ? (
-        <p className="mt-4 max-w-2xl text-base text-slate-600 md:text-lg">
-          {description}
-        </p>
+        <Reveal delay={140}>
+          <p className="section-description">{description}</p>
+        </Reveal>
       ) : null}
-    </Reveal>
+    </div>
   );
 }

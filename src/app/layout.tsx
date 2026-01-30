@@ -1,17 +1,23 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 
 const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-body",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Amani Njeri | Portfolio",
+  title: "Manuel Muhunami | Portfolio",
   description:
-    "A thoughtful, achievement-focused portfolio blending technology, writing, and global perspective.",
+    "Premium portfolio showcasing a Kenyan student builder focused on technology, writing, debate, and global issues.",
 };
 
 export default function RootLayout({
@@ -21,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${manrope.variable} font-sans antialiased`}>
+      <body
+        className={`${manrope.variable} ${playfair.variable} font-body antialiased`}
+      >
         {children}
       </body>
     </html>

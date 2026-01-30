@@ -6,16 +6,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "brand-blue": "#152a4a",
-        "brand-blue-dark": "#0d1b33",
-        "brand-red": "#b31e2d",
-        "off-white": "#f7f7fb",
+        "brand-blue": "var(--color-blue)",
+        "brand-red": "var(--color-red)",
+        "text-primary": "var(--color-text)",
+        "text-muted": "var(--color-text-muted)",
+        surface: "var(--color-surface)",
+        "surface-strong": "var(--color-surface-strong)",
+        line: "var(--color-line)",
       },
       fontFamily: {
-        sans: ["var(--font-manrope)", ...defaultTheme.fontFamily.sans],
+        body: ["var(--font-body)", ...defaultTheme.fontFamily.sans],
+        display: ["var(--font-display)", ...defaultTheme.fontFamily.serif],
       },
       boxShadow: {
-        soft: "0 16px 32px -24px rgba(13, 27, 51, 0.35)",
+        soft: "var(--shadow-soft)",
+        glow: "var(--shadow-glow)",
       },
     },
   },
