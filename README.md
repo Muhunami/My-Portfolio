@@ -21,6 +21,15 @@ npm run dev
 npm run dev
 ```
 
+## GitHub Pages (static export)
+
+This project uses a static export for GitHub Pages. The deployment workflow is configured
+to publish from the `cursor/portfolio-site-design-1fa3` branch.
+
+If you rename the repo or deploy from another branch, update:
+- `.github/workflows/deploy.yml` (branch and repo name)
+- `NEXT_PUBLIC_BASE_PATH` (e.g. `"/My-Portfolio"`)
+
 ## Production build
 
 ```bash
