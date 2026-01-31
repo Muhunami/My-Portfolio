@@ -1,0 +1,212 @@
+export const navSections = [
+  { id: "hero", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "work", label: "Work" },
+  { id: "writing", label: "Writing" },
+  { id: "journey", label: "Journey" },
+  { id: "skills", label: "Skills" },
+  { id: "values", label: "Values" },
+  { id: "contact", label: "Contact" },
+];
+
+export const hero = {
+  name: "Manuel Muhunami",
+  label: "Kenyan student / Builder / Debater",
+  headline: "I build ideas in code, in words, and in conversation.",
+  summary:
+    "I blend technical rigor with reflective writing and debate to explore how systems shape people and possibility.",
+};
+
+export const about = [
+  "I lead with questions. As a Kenyan high school student, I move between equations, essays, and arguments, learning how technical and human systems shape daily life.",
+  "I build digital tools and write reflective essays because ideas deserve structure. Debate and Model UN (SOCHUM, representing Benin) taught me to argue with care, listen closely, and lead with evidence.",
+  "Traveling to the U.S. and visiting Harvard, Yale, Columbia, and MIT expanded my sense of what is possible, while grounding me in the work still needed at home. I value depth over noise and I aim to leave things clearer than I found them.",
+];
+
+export const projects = [
+  {
+    title: "SomaFocus Study Planner",
+    category: "Website & Tool",
+    problem: "Students needed a simple way to plan revision without burnout.",
+    why: "It helped classmates build consistent routines instead of last-minute pressure.",
+    mindset: "I believe good systems reduce anxiety and make effort sustainable.",
+    stack: ["Next.js", "TypeScript", "Scheduling logic", "UX research"],
+    accent: "var(--color-blue-bright)",
+    linkLabel: "Request access",
+    link: "mailto:muhunanimg@gmail.com?subject=SomaFocus%20Study%20Planner",
+  },
+  {
+    title: "Signal Notes",
+    category: "Blog & Community",
+    problem: "Youth voices on technology and society were scattered and shallow.",
+    why: "A focused space made reflection feel public, thoughtful, and shared.",
+    mindset: "I see writing as infrastructure for collective thinking.",
+    stack: ["Editorial design", "Content strategy", "Community building"],
+    accent: "var(--color-red-bright)",
+    linkLabel: "View essays",
+    link: "mailto:muhunanimg@gmail.com?subject=Signal%20Notes%20Essays",
+  },
+  {
+    title: "SOCHUM Position Paper: Benin",
+    category: "Debate & MUN",
+    problem: "Global health debates often skip local realities.",
+    why: "The paper centered community-led solutions and regional context.",
+    mindset: "I argue best when I balance policy with people.",
+    stack: ["Policy research", "Structured argument", "Public speaking"],
+    accent: "var(--color-blue)",
+    linkLabel: "Read the brief",
+    link: "mailto:muhunanimg@gmail.com?subject=SOCHUM%20Position%20Paper",
+  },
+  {
+    title: "Climate Data Story Map",
+    category: "Research Project",
+    problem: "Climate data felt distant for local communities.",
+    why: "Visual storytelling made the trends easier to understand and discuss.",
+    mindset: "I use data to bring urgency without losing humanity.",
+    stack: ["Data visualization", "Narrative mapping", "Civic insight"],
+    accent: "var(--color-red)",
+    linkLabel: "Explore the map",
+    link: "mailto:muhunanimg@gmail.com?subject=Climate%20Data%20Story%20Map",
+  },
+];
+
+export const writings = [
+  {
+    title: "The Shape of Change",
+    category: "Essays",
+    theme: "Change",
+    excerpt:
+      "Change is rarely loud. It is the quiet accumulation of small choices that shift what a community believes is possible.",
+  },
+  {
+    title: "Attention Is a Moral Choice",
+    category: "Reflection",
+    theme: "Attention & meaning",
+    excerpt:
+      "What we attend to becomes what we build. Distraction is not neutral - it shapes the kind of future we accept.",
+  },
+  {
+    title: "Technology That Listens",
+    category: "Technology",
+    theme: "Technology & society",
+    excerpt:
+      "Tools should make people feel seen, not measured. I'm drawn to systems that start with care.",
+  },
+  {
+    title: "Youth Voice Is Not a Trend",
+    category: "Debate",
+    theme: "Youth perspective",
+    excerpt:
+      "We are not a demographic to be marketed to. We are a generation making sense of the world in real time.",
+  },
+];
+
+export const journey = [
+  {
+    year: "2021",
+    title: "First public website shipped",
+    description:
+      "Learned to translate a personal idea into a tool other students could use.",
+  },
+  {
+    year: "2022",
+    title: "Model UN delegate, SOCHUM (Benin)",
+    description:
+      "Practiced structured argumentation, research, and diplomacy under pressure.",
+  },
+  {
+    year: "2023",
+    title: "National debate circuit growth",
+    description:
+      "Moved from quick wins to deeper preparation and ethical reasoning.",
+  },
+  {
+    year: "2024",
+    title: "Community digital literacy sessions",
+    description:
+      "Led workshops that made basic tech skills feel accessible and empowering.",
+  },
+  {
+    year: "2025",
+    title: "U.S. academic visits",
+    description:
+      "Visited Harvard, Yale, Columbia, and MIT, refining my global outlook.",
+  },
+];
+
+export const values = [
+  {
+    title: "Depth over noise",
+    description:
+      "I value careful thinking, even when it takes longer, because clarity lasts.",
+  },
+  {
+    title: "Technology with responsibility",
+    description:
+      "I want to build tools that serve people before metrics.",
+  },
+  {
+    title: "Global curiosity, local commitment",
+    description:
+      "International exposure matters most when it strengthens what I do at home.",
+  },
+  {
+    title: "Story as structure",
+    description:
+      "Writing helps me test ideas, connect disciplines, and keep a human lens.",
+  },
+];
+
+export const direction =
+  "I'm exploring computer science, physics, and social analysis to understand how systems work and how to redesign them for fairness, access, and meaning.";
+
+export const skills = [
+  {
+    group: "Engineering + Product",
+    items: [
+      { label: "Web development", value: 88 },
+      { label: "Systems thinking", value: 82 },
+      { label: "UX clarity", value: 80 },
+    ],
+  },
+  {
+    group: "Writing + Research",
+    items: [
+      { label: "Analytical writing", value: 90 },
+      { label: "Debate prep", value: 84 },
+      { label: "Policy research", value: 78 },
+    ],
+  },
+  {
+    group: "Leadership + Community",
+    items: [
+      { label: "Facilitation", value: 86 },
+      { label: "Mentorship", value: 83 },
+      { label: "Project ownership", value: 85 },
+    ],
+  },
+];
+
+export const contact = {
+  title: "Let's build something thoughtful.",
+  description:
+    "I'm open to collaborations, research conversations, and projects that ask bigger questions.",
+};
+
+export const contactLinks = [
+  {
+    label: "Email",
+    value: "muhunanimg@gmail.com",
+    href: "mailto:muhunanimg@gmail.com",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/manuelmuhunami",
+    href: "https://linkedin.com/in/manuelmuhunami",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/manuelmuhunami",
+    href: "https://github.com/manuelmuhunami",
+  },
+];
