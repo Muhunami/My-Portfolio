@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${manrope.variable} ${playfair.variable} font-body antialiased`}
+        className={`${inter.variable} ${playfair.variable} font-body antialiased`}
       >
         {children}
       </body>

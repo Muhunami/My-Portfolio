@@ -40,6 +40,9 @@
   --nav-highlight-strong: rgba(255, 255, 255, 0.7);
   --nav-highlight-soft: rgba(255, 255, 255, 0.35);
   --glass-btn-bg: rgba(255, 255, 255, 0.08);
+  --project-overlay: rgba(255, 255, 255, 0.12);
+  --skill-track: rgba(12, 18, 32, 0.1);
+  --focus-ring: rgba(44, 89, 166, 0.15);
   --color-dark-solid: rgba(11, 16, 32, 0.85);
   --footer-text-muted: rgba(247, 248, 255, 0.75);
   --hero-halo: rgba(255, 255, 255, 0.08);
@@ -85,6 +88,7 @@ a {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+  animation: pageFade 0.8s ease both;
 }
 
 .background-layer {
@@ -467,6 +471,76 @@ a {
   }
 }
 
+.project-media {
+  height: 140px;
+  border-radius: 18px;
+  background: linear-gradient(
+      120deg,
+      var(--project-accent, var(--color-blue-bright)),
+      transparent 65%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      var(--glow-blue),
+      transparent 55%
+    );
+  position: relative;
+  overflow: hidden;
+}
+
+.project-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--project-overlay),
+    transparent
+  );
+}
+
+.project-media-inner {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.project-media-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 600;
+  color: var(--color-on-dark);
+}
+
+.project-header {
+  display: grid;
+  gap: 4px;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border-light);
+}
+
 .card-writing {
   border-radius: 28px;
 }
@@ -493,8 +567,32 @@ a {
   );
 }
 
-.writing-grid > :first-child {
-  grid-column: span 2;
+.writing-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.writing-group {
+  display: grid;
+  gap: 16px;
+}
+
+.writing-group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.writing-group-header::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.writing-cards {
+  display: grid;
+  gap: 18px;
 }
 
 .text-link {
@@ -589,6 +687,56 @@ a {
   padding: 24px;
 }
 
+.skills-card {
+  gap: 18px;
+}
+
+.skills-list {
+  display: grid;
+  gap: 16px;
+}
+
+.skill-row {
+  display: grid;
+  gap: 8px;
+}
+
+.skill-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.skill-name {
+  font-weight: 600;
+}
+
+.skill-value {
+  color: var(--color-text-soft);
+  font-size: 0.8rem;
+}
+
+.skill-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--skill-track);
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  display: block;
+  height: 100%;
+  width: var(--skill-width, 0%);
+  background: linear-gradient(
+    90deg,
+    var(--color-blue),
+    var(--color-red)
+  );
+  border-radius: inherit;
+}
+
 .contact-card {
   margin-top: 32px;
   padding: 28px;
@@ -632,6 +780,50 @@ a {
   letter-spacing: 0.2em;
   color: var(--color-red);
   font-weight: 600;
+}
+
+.contact-form {
+  margin-top: 12px;
+  display: grid;
+  gap: 16px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.form-field {
+  display: grid;
+  gap: 8px;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.form-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-soft);
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field textarea {
+  border-radius: 16px;
+  border: 1px solid var(--glass-border-light);
+  background: var(--glass-surface);
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--color-blue-bright);
+  box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
 .footer {
@@ -694,7 +886,28 @@ a {
     padding: 64px 0;
   }
 
-  .writing-grid > :first-child {
-    grid-column: span 1;
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .writing-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

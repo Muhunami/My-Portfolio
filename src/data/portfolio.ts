@@ -4,6 +4,7 @@ export const navSections = [
   { id: "work", label: "Work" },
   { id: "writing", label: "Writing" },
   { id: "journey", label: "Journey" },
+  { id: "skills", label: "Skills" },
   { id: "values", label: "Values" },
   { id: "contact", label: "Contact" },
 ];
@@ -29,6 +30,8 @@ export const projects = [
     problem: "Students needed a simple way to plan revision without burnout.",
     why: "It helped classmates build consistent routines instead of last-minute pressure.",
     mindset: "I believe good systems reduce anxiety and make effort sustainable.",
+    stack: ["Next.js", "TypeScript", "Scheduling logic", "UX research"],
+    accent: "var(--color-blue-bright)",
     linkLabel: "Request access",
     link: "mailto:muhunanimg@gmail.com?subject=SomaFocus%20Study%20Planner",
   },
@@ -38,6 +41,8 @@ export const projects = [
     problem: "Youth voices on technology and society were scattered and shallow.",
     why: "A focused space made reflection feel public, thoughtful, and shared.",
     mindset: "I see writing as infrastructure for collective thinking.",
+    stack: ["Editorial design", "Content strategy", "Community building"],
+    accent: "var(--color-red-bright)",
     linkLabel: "View essays",
     link: "mailto:muhunanimg@gmail.com?subject=Signal%20Notes%20Essays",
   },
@@ -47,6 +52,8 @@ export const projects = [
     problem: "Global health debates often skip local realities.",
     why: "The paper centered community-led solutions and regional context.",
     mindset: "I argue best when I balance policy with people.",
+    stack: ["Policy research", "Structured argument", "Public speaking"],
+    accent: "var(--color-blue)",
     linkLabel: "Read the brief",
     link: "mailto:muhunanimg@gmail.com?subject=SOCHUM%20Position%20Paper",
   },
@@ -56,6 +63,8 @@ export const projects = [
     problem: "Climate data felt distant for local communities.",
     why: "Visual storytelling made the trends easier to understand and discuss.",
     mindset: "I use data to bring urgency without losing humanity.",
+    stack: ["Data visualization", "Narrative mapping", "Civic insight"],
+    accent: "var(--color-red)",
     linkLabel: "Explore the map",
     link: "mailto:muhunanimg@gmail.com?subject=Climate%20Data%20Story%20Map",
   },
@@ -64,24 +73,28 @@ export const projects = [
 export const writings = [
   {
     title: "The Shape of Change",
+    category: "Essays",
     theme: "Change",
     excerpt:
       "Change is rarely loud. It is the quiet accumulation of small choices that shift what a community believes is possible.",
   },
   {
     title: "Attention Is a Moral Choice",
+    category: "Reflection",
     theme: "Attention & meaning",
     excerpt:
       "What we attend to becomes what we build. Distraction is not neutral - it shapes the kind of future we accept.",
   },
   {
     title: "Technology That Listens",
+    category: "Technology",
     theme: "Technology & society",
     excerpt:
       "Tools should make people feel seen, not measured. I'm drawn to systems that start with care.",
   },
   {
     title: "Youth Voice Is Not a Trend",
+    category: "Debate",
     theme: "Youth perspective",
     excerpt:
       "We are not a demographic to be marketed to. We are a generation making sense of the world in real time.",
@@ -146,6 +159,33 @@ export const values = [
 
 export const direction =
   "I'm exploring computer science, physics, and social analysis to understand how systems work and how to redesign them for fairness, access, and meaning.";
+
+export const skills = [
+  {
+    group: "Engineering + Product",
+    items: [
+      { label: "Web development", value: 88 },
+      { label: "Systems thinking", value: 82 },
+      { label: "UX clarity", value: 80 },
+    ],
+  },
+  {
+    group: "Writing + Research",
+    items: [
+      { label: "Analytical writing", value: 90 },
+      { label: "Debate prep", value: 84 },
+      { label: "Policy research", value: 78 },
+    ],
+  },
+  {
+    group: "Leadership + Community",
+    items: [
+      { label: "Facilitation", value: 86 },
+      { label: "Mentorship", value: 83 },
+      { label: "Project ownership", value: 85 },
+    ],
+  },
+];
 
 export const contact = {
   title: "Let's build something thoughtful.",

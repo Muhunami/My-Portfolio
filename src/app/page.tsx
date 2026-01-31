@@ -11,11 +11,20 @@ import {
   journey,
   navSections,
   projects,
+  skills,
   values,
   writings,
 } from "@/data/portfolio";
 
 export default function Home() {
+  const writingOrder = ["Technology", "Reflection", "Debate", "Essays"];
+  const writingGroups = writingOrder
+    .map((category) => ({
+      category,
+      items: writings.filter((item) => item.category === category),
+    }))
+    .filter((group) => group.items.length > 0);
+
   return (
     <div className="page-shell">
       <ScrollEffects />
@@ -48,10 +57,10 @@ export default function Home() {
               <Reveal delay={380}>
                 <div className="hero-actions">
                   <a className="btn-primary" href="#work">
-                    Explore work
+                    View work
                   </a>
-                  <a className="btn-secondary" href="#writing">
-                    Read ideas
+                  <a className="btn-secondary" href="#contact">
+                    Contact
                   </a>
                 </div>
               </Reveal>
@@ -92,9 +101,25 @@ export default function Home() {
             <div className="mt-10 grid gap-6 md:grid-cols-2">
               {projects.map((project, index) => (
                 <Reveal key={project.title} delay={index * 80}>
-                  <article className="card glass glass-light card-interactive">
-                    <p className="eyebrow accent">{project.category}</p>
-                    <h3 className="card-title">{project.title}</h3>
+                  <article
+                    className="card glass glass-light card-interactive"
+                    style={
+                      {
+                        "--project-accent": project.accent,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <div className="project-media" aria-hidden="true">
+                      <div className="project-media-inner">
+                        <span className="project-media-label">
+                          {project.category}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="project-header">
+                      <p className="eyebrow accent">{project.category}</p>
+                      <h3 className="card-title">{project.title}</h3>
+                    </div>
                     <div className="card-hook">
                       <p className="card-label">What problem it explored</p>
                       <p className="card-text">{project.problem}</p>
@@ -111,6 +136,13 @@ export default function Home() {
                         <dd>{project.mindset}</dd>
                       </div>
                     </dl>
+                    <div className="project-stack">
+                      {project.stack.map((item) => (
+                        <span key={item} className="tag">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                     <a className="text-link" href={project.link}>
                       {project.linkLabel}
                     </a>
@@ -128,15 +160,28 @@ export default function Home() {
               title="A journal of questions and clarity"
               description="Reflective essays that explore change, technology, attention, and youth experience."
             />
-            <div className="writing-grid mt-10 grid gap-6 md:grid-cols-2">
-              {writings.map((item, index) => (
-                <Reveal key={item.title} delay={index * 80}>
-                  <article className="card glass glass-light card-writing">
-                    <p className="eyebrow">{item.theme}</p>
-                    <h3 className="card-title">{item.title}</h3>
-                    <p className="card-text card-quote">{item.excerpt}</p>
-                  </article>
-                </Reveal>
+            <div className="writing-grid mt-10">
+              {writingGroups.map((group, groupIndex) => (
+                <div key={group.category} className="writing-group">
+                  <Reveal delay={groupIndex * 80}>
+                    <div className="writing-group-header">
+                      <p className="eyebrow accent">{group.category}</p>
+                    </div>
+                  </Reveal>
+                  <div className="writing-cards">
+                    {group.items.map((item, index) => (
+                      <Reveal key={item.title} delay={index * 80}>
+                        <article className="card glass glass-light card-writing">
+                          <p className="eyebrow">{item.theme}</p>
+                          <h3 className="card-title">{item.title}</h3>
+                          <p className="card-text card-quote">
+                            {item.excerpt}
+                          </p>
+                        </article>
+                      </Reveal>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -157,6 +202,45 @@ export default function Home() {
                     <p className="eyebrow accent">{item.year}</p>
                     <h3 className="card-title">{item.title}</h3>
                     <p className="card-text">{item.description}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="section section-light">
+          <div className="mx-auto max-w-6xl px-6">
+            <SectionHeader
+              eyebrow="Skills"
+              title="Capabilities in motion"
+              description="Balanced strengths across engineering, writing, and leadership."
+            />
+            <div className="skills-grid mt-10 grid gap-6 md:grid-cols-3">
+              {skills.map((group, index) => (
+                <Reveal key={group.group} delay={index * 80}>
+                  <div className="card glass glass-light skills-card">
+                    <h3 className="card-title">{group.group}</h3>
+                    <div className="skills-list">
+                      {group.items.map((item) => (
+                        <div key={item.label} className="skill-row">
+                          <div className="skill-meta">
+                            <span className="skill-name">{item.label}</span>
+                            <span className="skill-value">{item.value}%</span>
+                          </div>
+                          <div className="skill-bar">
+                            <span
+                              className="skill-bar-fill"
+                              style={
+                                {
+                                  "--skill-width": `${item.value}%`,
+                                } as React.CSSProperties
+                              }
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </Reveal>
               ))}
@@ -217,6 +301,31 @@ export default function Home() {
                   </a>
                 ))}
               </div>
+              <form
+                className="contact-form"
+                id="contact-form"
+                action="mailto:muhunanimg@gmail.com"
+                method="post"
+                encType="text/plain"
+              >
+                <div className="form-grid">
+                  <label className="form-field">
+                    <span className="form-label">Name</span>
+                    <input type="text" name="name" required />
+                  </label>
+                  <label className="form-field">
+                    <span className="form-label">Email</span>
+                    <input type="email" name="email" required />
+                  </label>
+                </div>
+                <label className="form-field">
+                  <span className="form-label">Message</span>
+                  <textarea name="message" rows={4} required />
+                </label>
+                <button className="btn-primary" type="submit">
+                  Send message
+                </button>
+              </form>
             </div>
           </div>
         </section>
