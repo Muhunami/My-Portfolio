@@ -1,341 +1,429 @@
-import { NavBar } from "@/components/NavBar";
-import { Reveal } from "@/components/Reveal";
-import { ScrollEffects } from "@/components/ScrollEffects";
-import { SectionHeader } from "@/components/SectionHeader";
-import {
-  about,
-  contact,
-  contactLinks,
-  direction,
-  hero,
-  journey,
-  navSections,
-  projects,
-  skills,
-  values,
-  writings,
-} from "@/data/portfolio";
+"use client";
+
+import { useEffect } from "react";
 
 export default function Home() {
-  const writingOrder = ["Technology", "Reflection", "Debate", "Essays"];
-  const writingGroups = writingOrder
-    .map((category) => ({
-      category,
-      items: writings.filter((item) => item.category === category),
-    }))
-    .filter((group) => group.items.length > 0);
+  useEffect(() => {
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.getElementById("navLinks");
+    const header = document.querySelector("header");
+    const contactForm = document.getElementById(
+      "contactForm"
+    ) as HTMLFormElement | null;
+    const fadeElements = Array.from(
+      document.querySelectorAll<HTMLElement>(".fade-in")
+    );
+    const navLinkItems = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>(".nav-links a")
+    );
+    const anchorLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
+    );
+
+    const toggleMenu = () => {
+      if (!navLinks || !mobileMenuBtn) {
+        return;
+      }
+      navLinks.classList.toggle("active");
+      mobileMenuBtn.innerHTML = navLinks.classList.contains("active")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    };
+
+    const closeMenu = () => {
+      if (!navLinks || !mobileMenuBtn) {
+        return;
+      }
+      navLinks.classList.remove("active");
+      mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    };
+
+    const fadeInOnScroll = () => {
+      fadeElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add("visible");
+          const progressBar = element.querySelector<HTMLElement>(".skill-progress");
+          if (progressBar && !progressBar.style.width) {
+            const width = progressBar.getAttribute("data-width");
+            if (width) {
+              progressBar.style.width = `${width}%`;
+            }
+          }
+        }
+      });
+    };
+
+    const handleAnchorClick = (event: Event) => {
+      const target = event.currentTarget as HTMLAnchorElement | null;
+      if (!target) {
+        return;
+      }
+      const targetId = target.getAttribute("href");
+      if (!targetId || targetId === "#") {
+        return;
+      }
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        event.preventDefault();
+        window.scrollTo({
+          top: targetElement.getBoundingClientRect().top + window.scrollY - 80,
+          behavior: "smooth",
+        });
+      }
+    };
+
+    const handleFormSubmit = (event: Event) => {
+      event.preventDefault();
+      alert("Thank you for your message! I'll get back to you soon.");
+      contactForm?.reset();
+    };
+
+    const handleScrollHeader = () => {
+      if (!header) {
+        return;
+      }
+      if (window.scrollY > 100) {
+        header.style.padding = "15px 0";
+        header.style.boxShadow = "0 5px 20px rgba(0, 0, 0, 0.1)";
+      } else {
+        header.style.padding = "20px 0";
+        header.style.boxShadow = "0 5px 20px rgba(0, 0, 0, 0.05)";
+      }
+    };
+
+    mobileMenuBtn?.addEventListener("click", toggleMenu);
+    navLinkItems.forEach((link) => link.addEventListener("click", closeMenu));
+    anchorLinks.forEach((link) => link.addEventListener("click", handleAnchorClick));
+    contactForm?.addEventListener("submit", handleFormSubmit);
+
+    fadeInOnScroll();
+    window.addEventListener("scroll", fadeInOnScroll);
+    window.addEventListener("scroll", handleScrollHeader);
+
+    return () => {
+      mobileMenuBtn?.removeEventListener("click", toggleMenu);
+      navLinkItems.forEach((link) => link.removeEventListener("click", closeMenu));
+      anchorLinks.forEach((link) =>
+        link.removeEventListener("click", handleAnchorClick)
+      );
+      contactForm?.removeEventListener("submit", handleFormSubmit);
+      window.removeEventListener("scroll", fadeInOnScroll);
+      window.removeEventListener("scroll", handleScrollHeader);
+    };
+  }, []);
 
   return (
-    <div className="page-shell">
-      <ScrollEffects />
-      <div className="background-layer" aria-hidden="true">
-        <div className="orb orb-blue" data-parallax="0.08" />
-        <div className="orb orb-red" data-parallax="0.05" />
-        <div className="orb orb-blue-secondary" data-parallax="0.03" />
-        <div className="noise-layer" />
-      </div>
-      <NavBar name={hero.name} sections={navSections} />
-      <main className="relative z-10">
-        <section id="hero" className="hero-section">
-          <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-            <div className="hero-card glass glass-dark">
-              <Reveal delay={0}>
-                <p className="eyebrow hero-eyebrow">Portfolio</p>
-              </Reveal>
-              <Reveal delay={120}>
-                <h1 className="hero-name">{hero.name}</h1>
-              </Reveal>
-              <Reveal delay={200}>
-                <p className="hero-tagline">{hero.headline}</p>
-              </Reveal>
-              <Reveal delay={260}>
-                <p className="hero-summary">{hero.summary}</p>
-              </Reveal>
-              <Reveal delay={320}>
-                <p className="hero-label">{hero.label}</p>
-              </Reveal>
-              <Reveal delay={380}>
-                <div className="hero-actions">
-                  <a className="btn-primary" href="#work">
-                    View work
-                  </a>
-                  <a className="btn-secondary" href="#contact">
-                    Contact
-                  </a>
+    <>
+      <header>
+        <div className="container">
+          <nav className="navbar">
+            <a href="#home" className="logo">
+              Manuel
+            </a>
+            <button className="mobile-menu-btn" id="mobileMenuBtn" type="button">
+              <i className="fas fa-bars" />
+            </button>
+            <ul className="nav-links" id="navLinks">
+              <li>
+                <a href="#home">Home</a>
+              </li>
+              <li>
+                <a href="#about">About</a>
+              </li>
+              <li>
+                <a href="#projects">Projects</a>
+              </li>
+              <li>
+                <a href="#skills">Skills</a>
+              </li>
+              <li>
+                <a href="#contact">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <section id="home" className="hero">
+        <div className="container">
+          <div className="hero-content fade-in">
+            <h1>Manuel Muhunami</h1>
+            <p>I build ideas in code, writing, and conversation.</p>
+            <div className="hero-btns">
+              <a href="#projects" className="btn btn-primary">
+                View My Work
+              </a>
+              <a href="#contact" className="btn btn-secondary">
+                Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="hero-bg" />
+      </section>
+
+      <section id="about">
+        <div className="container">
+          <h2 className="section-title fade-in">About Me</h2>
+          <div className="about-content">
+            <div className="about-text fade-in">
+              <p>
+                I'm a 16-year-old Kenyan student passionate about the
+                intersection of technology, creativity, and human expression.
+                For me, coding is not just about building applications - it's a
+                form of creative problem-solving that brings ideas to life.
+              </p>
+              <p>
+                My interests span programming, writing, debate, and digital
+                innovation. I'm particularly fascinated by AI's potential to
+                augment human creativity and solve complex challenges facing
+                communities like ours in Kenya.
+              </p>
+              <p>
+                When I'm not coding or writing, you'll find me engaged in
+                debates, researching emerging technologies, or collaborating on
+                projects that aim to make a meaningful impact. I believe in the
+                power of well-articulated ideas to drive change.
+              </p>
+              <a href="#contact" className="btn btn-primary">
+                Let's Connect
+              </a>
+            </div>
+            <div className="about-visual fade-in">
+              <div className="visual-card">
+                <div className="card-icon">
+                  <i className="fas fa-lightbulb" />
                 </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="section section-light">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader
-              eyebrow="About"
-              title="Curiosity with structure"
-              description="A narrative shaped by logic, reflection, and a global point of view."
-            />
-            <div className="about-card glass glass-light">
-              {about.map((paragraph, index) => (
-                <Reveal key={paragraph} delay={index * 80}>
-                  <p
-                    className={`body-text ${
-                      index === 0 ? "body-text-lead" : "body-text-body"
-                    }`}
-                  >
-                    {paragraph}
-                  </p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="work" className="section section-muted">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader
-              eyebrow="Projects"
-              title="Work that carries meaning"
-              description="Each build explores a real question and reflects how I think about systems."
-            />
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {projects.map((project, index) => (
-                <Reveal key={project.title} delay={index * 80}>
-                  <article
-                    className="card glass glass-light card-interactive"
-                    style={
-                      {
-                        "--project-accent": project.accent,
-                      } as React.CSSProperties
-                    }
-                  >
-                    <div className="project-media" aria-hidden="true">
-                      <div className="project-media-inner">
-                        <span className="project-media-label">
-                          {project.category}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="project-header">
-                      <p className="eyebrow accent">{project.category}</p>
-                      <h3 className="card-title">{project.title}</h3>
-                    </div>
-                    <div className="card-hook">
-                      <p className="card-label">What problem it explored</p>
-                      <p className="card-text">{project.problem}</p>
-                    </div>
-                    <dl className="card-body card-details">
-                      <div>
-                        <dt className="card-label">Why it mattered</dt>
-                        <dd>{project.why}</dd>
-                      </div>
-                      <div>
-                        <dt className="card-label">
-                          What it says about how I think
-                        </dt>
-                        <dd>{project.mindset}</dd>
-                      </div>
-                    </dl>
-                    <div className="project-stack">
-                      {project.stack.map((item) => (
-                        <span key={item} className="tag">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                    <a className="text-link" href={project.link}>
-                      {project.linkLabel}
-                    </a>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="writing" className="section section-light">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader
-              eyebrow="Writing & Ideas"
-              title="A journal of questions and clarity"
-              description="Reflective essays that explore change, technology, attention, and youth experience."
-            />
-            <div className="writing-grid mt-10">
-              {writingGroups.map((group, groupIndex) => (
-                <div key={group.category} className="writing-group">
-                  <Reveal delay={groupIndex * 80}>
-                    <div className="writing-group-header">
-                      <p className="eyebrow accent">{group.category}</p>
-                    </div>
-                  </Reveal>
-                  <div className="writing-cards">
-                    {group.items.map((item, index) => (
-                      <Reveal key={item.title} delay={index * 80}>
-                        <article className="card glass glass-light card-writing">
-                          <p className="eyebrow">{item.theme}</p>
-                          <h3 className="card-title">{item.title}</h3>
-                          <p className="card-text card-quote">
-                            {item.excerpt}
-                          </p>
-                        </article>
-                      </Reveal>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="journey" className="section section-muted">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader
-              eyebrow="Achievements & Experiences"
-              title="A journey still unfolding"
-              description="Growth, leadership, and global exposure as steps in a longer story."
-            />
-            <div className="timeline">
-              {journey.map((item, index) => (
-                <Reveal key={item.title} delay={index * 80}>
-                  <div className="timeline-item glass glass-light">
-                    <span className="timeline-node" aria-hidden="true" />
-                    <p className="eyebrow accent">{item.year}</p>
-                    <h3 className="card-title">{item.title}</h3>
-                    <p className="card-text">{item.description}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" className="section section-light">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader
-              eyebrow="Skills"
-              title="Capabilities in motion"
-              description="Balanced strengths across engineering, writing, and leadership."
-            />
-            <div className="skills-grid mt-10 grid gap-6 md:grid-cols-3">
-              {skills.map((group, index) => (
-                <Reveal key={group.group} delay={index * 80}>
-                  <div className="card glass glass-light skills-card">
-                    <h3 className="card-title">{group.group}</h3>
-                    <div className="skills-list">
-                      {group.items.map((item) => (
-                        <div key={item.label} className="skill-row">
-                          <div className="skill-meta">
-                            <span className="skill-name">{item.label}</span>
-                            <span className="skill-value">{item.value}%</span>
-                          </div>
-                          <div className="skill-bar">
-                            <span
-                              className="skill-bar-fill"
-                              style={
-                                {
-                                  "--skill-width": `${item.value}%`,
-                                } as React.CSSProperties
-                              }
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="values" className="section section-light">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader
-              eyebrow="Values & Direction"
-              title="What I care about next"
-              description="Principles that guide how I build, learn, and grow."
-            />
-            <div className="values-grid mt-10 grid gap-6 md:grid-cols-2">
-              {values.map((value, index) => (
-                <Reveal key={value.title} delay={index * 80}>
-                  <article className="card glass glass-light">
-                    <h3 className="card-title">{value.title}</h3>
-                    <p className="card-text">{value.description}</p>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal delay={200}>
-              <div className="direction-card glass glass-light">
-                <p className="eyebrow accent">Direction</p>
-                <p className="card-text">{direction}</p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        <section id="contact" className="section section-muted">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader
-              eyebrow="Contact"
-              title={contact.title}
-              description={contact.description}
-            />
-            <div className="contact-card glass glass-light">
-              <div className="contact-details">
-                <p className="card-text">
-                  Email:{" "}
-                  <a className="text-link" href="mailto:muhunanimg@gmail.com">
-                    muhunanimg@gmail.com
-                  </a>
+                <h3>Creative Technologist</h3>
+                <p>
+                  Blending technical skills with creative thinking to build
+                  meaningful solutions.
                 </p>
               </div>
-              <div className="contact-grid mt-6 grid gap-4 md:grid-cols-2">
-                {contactLinks.map((link) => (
-                  <a key={link.label} href={link.href} className="contact-link">
-                    <div>
-                      <p className="eyebrow">{link.label}</p>
-                      <p className="contact-value">{link.value}</p>
-                    </div>
-                    <span className="contact-action">Open</span>
-                  </a>
-                ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div className="container">
+          <h2 className="section-title fade-in">My Projects</h2>
+          <div className="projects-grid">
+            <div className="project-card fade-in">
+              <div className="project-img">
+                <i className="fas fa-robot" />
               </div>
-              <form
-                className="contact-form"
-                id="contact-form"
-                action="mailto:muhunanimg@gmail.com"
-                method="post"
-                encType="text/plain"
-              >
-                <div className="form-grid">
-                  <label className="form-field">
-                    <span className="form-label">Name</span>
-                    <input type="text" name="name" required />
-                  </label>
-                  <label className="form-field">
-                    <span className="form-label">Email</span>
-                    <input type="email" name="email" required />
-                  </label>
+              <div className="project-content">
+                <h3>AI Debate Assistant</h3>
+                <p>
+                  An AI-powered tool that helps debaters structure arguments,
+                  find evidence, and anticipate counterpoints. Built with Python
+                  and natural language processing.
+                </p>
+                <div className="tech-tags">
+                  <span className="tech-tag">Python</span>
+                  <span className="tech-tag">NLP</span>
+                  <span className="tech-tag">Flask</span>
                 </div>
-                <label className="form-field">
-                  <span className="form-label">Message</span>
-                  <textarea name="message" rows={4} required />
-                </label>
-                <button className="btn-primary" type="submit">
-                  Send message
+                <a href="#" className="btn btn-secondary">
+                  View Details
+                </a>
+              </div>
+            </div>
+
+            <div className="project-card fade-in">
+              <div className="project-img">
+                <i className="fas fa-book-open" />
+              </div>
+              <div className="project-content">
+                <h3>Digital Student Journal</h3>
+                <p>
+                  A platform for Kenyan students to publish essays, research,
+                  and creative writing. Features categorization, peer feedback,
+                  and writing analytics.
+                </p>
+                <div className="tech-tags">
+                  <span className="tech-tag">JavaScript</span>
+                  <span className="tech-tag">Node.js</span>
+                  <span className="tech-tag">MongoDB</span>
+                </div>
+                <a href="#" className="btn btn-secondary">
+                  View Details
+                </a>
+              </div>
+            </div>
+
+            <div className="project-card fade-in">
+              <div className="project-img">
+                <i className="fas fa-chart-line" />
+              </div>
+              <div className="project-content">
+                <h3>Community Tech Literacy Dashboard</h3>
+                <p>
+                  Interactive dashboard visualizing technology adoption and
+                  digital literacy trends in local Kenyan communities. Created
+                  for a community research project.
+                </p>
+                <div className="tech-tags">
+                  <span className="tech-tag">React</span>
+                  <span className="tech-tag">D3.js</span>
+                  <span className="tech-tag">API</span>
+                </div>
+                <a href="#" className="btn btn-secondary">
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div className="container">
+          <h2 className="section-title fade-in">Skills &amp; Expertise</h2>
+          <div className="skills-container">
+            <div className="skill-item fade-in">
+              <div className="skill-icon">
+                <i className="fas fa-code" />
+              </div>
+              <h3>Programming</h3>
+              <p>Python, JavaScript, HTML/CSS, Web Development</p>
+              <div className="skill-bar">
+                <div className="skill-progress" data-width="85" />
+              </div>
+            </div>
+
+            <div className="skill-item fade-in">
+              <div className="skill-icon">
+                <i className="fas fa-pen-fancy" />
+              </div>
+              <h3>Writing</h3>
+              <p>Technical writing, essays, research papers, creative writing</p>
+              <div className="skill-bar">
+                <div className="skill-progress" data-width="90" />
+              </div>
+            </div>
+
+            <div className="skill-item fade-in">
+              <div className="skill-icon">
+                <i className="fas fa-microphone" />
+              </div>
+              <h3>Public Speaking</h3>
+              <p>Debate, presentations, persuasive communication</p>
+              <div className="skill-bar">
+                <div className="skill-progress" data-width="80" />
+              </div>
+            </div>
+
+            <div className="skill-item fade-in">
+              <div className="skill-icon">
+                <i className="fas fa-lightbulb" />
+              </div>
+              <h3>Creative Problem Solving</h3>
+              <p>Innovative thinking, design thinking, solution development</p>
+              <div className="skill-bar">
+                <div className="skill-progress" data-width="88" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div className="container">
+          <h2 className="section-title fade-in">Get In Touch</h2>
+          <div className="contact-container">
+            <div className="contact-info fade-in">
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <i className="fas fa-envelope" />
+                </div>
+                <div>
+                  <h3>Email</h3>
+                  <p>muhunanimg@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <i className="fas fa-map-marker-alt" />
+                </div>
+                <div>
+                  <h3>Location</h3>
+                  <p>Nairobi, Kenya</p>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <i className="fas fa-graduation-cap" />
+                </div>
+                <div>
+                  <h3>Education</h3>
+                  <p>
+                    High School Student
+                    <br />
+                    Focus: Technology &amp; Creative Arts
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact-form fade-in">
+              <form id="contactForm">
+                <div className="form-group">
+                  <input type="text" placeholder="Your Name" required />
+                </div>
+                <div className="form-group">
+                  <input type="email" placeholder="Your Email" required />
+                </div>
+                <div className="form-group">
+                  <input type="text" placeholder="Subject" required />
+                </div>
+                <div className="form-group">
+                  <textarea rows={5} placeholder="Your Message" required />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Send Message
                 </button>
               </form>
             </div>
           </div>
-        </section>
-      </main>
-      <footer className="footer glass glass-dark">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 md:flex-row">
-          <span className="footer-name">{hero.name}</span>
-          <span className="footer-email">muhunanimg@gmail.com</span>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container">
+          <a href="#home" className="logo" style={{ color: "#ffffff" }}>
+            Manuel Muhunami
+          </a>
+          <p style={{ marginTop: 20, opacity: 0.8 }}>
+            Building the future with code, words, and ideas.
+          </p>
+
+          <div className="social-links">
+            <a href="#" className="social-icon">
+              <i className="fab fa-github" />
+            </a>
+            <a href="#" className="social-icon">
+              <i className="fab fa-linkedin-in" />
+            </a>
+            <a href="#" className="social-icon">
+              <i className="fab fa-twitter" />
+            </a>
+            <a href="#" className="social-icon">
+              <i className="fab fa-medium" />
+            </a>
+          </div>
+
+          <div className="copyright">
+            <p>&copy; 2023 Manuel Muhunami. All rights reserved.</p>
+            <p style={{ marginTop: 10 }}>Nairobi, Kenya</p>
+          </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
