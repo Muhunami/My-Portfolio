@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { SectionHeading } from "@/components/section-heading";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/lib/site";
 
@@ -39,24 +37,6 @@ export default function PortfolioPage() {
           </ScrollReveal>
         ))}
       </div>
-
-      <ScrollReveal>
-        <div className="glass mt-16 rounded-[2rem] p-8 text-center sm:p-10">
-          <SectionHeading
-            eyebrow="Next"
-            title="Want to collaborate?"
-            subtitle="Reach out — I read thoughtful messages."
-          />
-          <Link
-            prefetch
-            scroll
-            href="/contact"
-            className="mt-4 inline-flex rounded-full bg-white px-8 py-3 text-sm font-semibold text-[var(--color-ink)] transition hover:-translate-y-0.5"
-          >
-            Contact
-          </Link>
-        </div>
-      </ScrollReveal>
     </div>
   );
 }

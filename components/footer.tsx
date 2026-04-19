@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { site } from "@/lib/site";
-import { withBase } from "@/lib/paths";
+import { withBase, pageHref } from "@/lib/paths";
 
 export function Footer() {
   return (
@@ -28,19 +27,19 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-[var(--color-silver)]">
               <li>
-                <Link prefetch scroll className="hover:text-white" href="/portfolio">
+                <a className="hover:text-white" href={pageHref("/portfolio")}>
                   Projects
-                </Link>
+                </a>
               </li>
               <li>
-                <Link prefetch scroll className="hover:text-white" href="/resume">
+                <a className="hover:text-white" href={pageHref("/resume")}>
                   Skills
-                </Link>
+                </a>
               </li>
               <li>
-                <Link prefetch scroll className="hover:text-white" href="/blog">
+                <a className="hover:text-white" href={pageHref("/blog")}>
                   Insights
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -100,9 +99,9 @@ export function Footer() {
           © {new Date().getFullYear()} {site.name}
         </p>
         <div className="flex gap-4">
-          <Link prefetch scroll href="/privacy" className="hover:text-white">
+          <a href={pageHref("/privacy")} className="hover:text-white">
             Privacy
-          </Link>
+          </a>
           <span className="text-white/10">|</span>
           <a href={withBase("/sitemap.xml")} className="hover:text-white">
             Sitemap

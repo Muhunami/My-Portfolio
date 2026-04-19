@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { PageLink } from "@/components/page-link";
 import { HeroBackground } from "@/components/hero-background";
 import { SocialDock } from "@/components/social-dock";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -27,22 +27,18 @@ export function HomeContent() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <Link
-              prefetch
-              scroll
+            <PageLink
               href="/portfolio"
               className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-[var(--color-ink)] shadow-[0_20px_60px_rgba(255,255,255,0.12)] transition hover:-translate-y-0.5 sm:w-auto"
             >
               View My Work
-            </Link>
-            <Link
-              prefetch
-              scroll
+            </PageLink>
+            <PageLink
               href="/contact"
               className="glass inline-flex w-full items-center justify-center rounded-full px-8 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 sm:w-auto"
             >
               Contact Me
-            </Link>
+            </PageLink>
           </div>
         </div>
 

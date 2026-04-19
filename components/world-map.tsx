@@ -8,9 +8,7 @@ import {
   Marker,
 } from "react-simple-maps";
 import { mapPins } from "@/lib/site";
-
-const geoUrl =
-  "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+import geoData from "world-atlas/countries-110m.json";
 
 export function WorldMap() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -24,7 +22,7 @@ export function WorldMap() {
           <ComposableMap
             projection="geoMercator"
             projectionConfig={{
-              scale: 115,
+              scale: 118,
               center: [18, 14],
             }}
             width={960}
@@ -45,7 +43,7 @@ export function WorldMap() {
               </filter>
             </defs>
 
-            <Geographies geography={geoUrl}>
+            <Geographies geography={geoData as object}>
               {({ geographies }) =>
                 geographies.map((geo) => (
                   <Geography
@@ -65,7 +63,7 @@ export function WorldMap() {
             </Geographies>
 
             {mapPins.map((pin) => (
-              <Marker key={pin.id} coordinates={pin.coordinates}>
+              <Marker key={pin.id} coordinates={[...pin.coordinates]}>
                 <g
                   onMouseEnter={() => setHovered(pin.id)}
                   onMouseLeave={() => setHovered(null)}

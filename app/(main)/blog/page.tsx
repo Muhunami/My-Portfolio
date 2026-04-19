@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { PageLink } from "@/components/page-link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -45,14 +45,9 @@ export default function BlogIndexPage() {
       </ScrollReveal>
 
       <p className="mt-10 text-center text-sm text-[var(--color-muted)]">
-        <Link
-          prefetch
-          scroll
-          href="/contact"
-          className="text-[var(--color-silver)] hover:text-white"
-        >
+        <PageLink href="/contact" className="text-[var(--color-silver)] hover:text-white">
           Contact me
-        </Link>{" "}
+        </PageLink>{" "}
         — I&apos;d love to hear what inspires you too.
       </p>
     </div>

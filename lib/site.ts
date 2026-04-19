@@ -128,3 +128,27 @@ export const skillBadges = [
   "Storytelling",
   "Innovation Thinking",
 ] as const;
+
+export const skillClusters = [
+  {
+    id: "create",
+    title: "Create",
+    blurb: "Stories, images, and rhythm.",
+    items: ["Photography", "Creative Writing", "Song Writing", "Storytelling"],
+    accent: "from-violet-500/20 to-fuchsia-500/10",
+  },
+  {
+    id: "build",
+    title: "Build",
+    blurb: "Systems, interfaces, and how things work.",
+    items: ["Problem Solving through System Design", "UI / Idea Creation"],
+    accent: "from-blue-500/20 to-cyan-500/10",
+  },
+  {
+    id: "think",
+    title: "Think",
+    blurb: "Direction and new angles.",
+    items: ["Innovation Thinking"],
+    accent: "from-emerald-500/15 to-teal-500/10",
+  },
+] as const;

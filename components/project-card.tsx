@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { PageLink } from "@/components/page-link";
 import { ProjectPreview } from "@/components/project-preview";
 
 type Preview = "mirror" | "mun" | "blog" | "web" | "media";
@@ -45,15 +45,13 @@ export function ProjectCard({
             ))}
           </div>
         )}
-        <Link
-          prefetch
-          scroll
+        <PageLink
           href={href}
           className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white/90 transition hover:gap-3"
         >
           View project
           <span aria-hidden>→</span>
-        </Link>
+        </PageLink>
       </div>
     </article>
   );
