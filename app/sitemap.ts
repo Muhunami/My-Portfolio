@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { blogBodies } from "@/lib/blog-content";
 
+export const dynamic = "force-static";
+
 const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {

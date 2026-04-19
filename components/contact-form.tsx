@@ -9,31 +9,19 @@ export function ContactForm() {
   const [email, setEmail] = useState("");
   const [intent, setIntent] = useState("Collaboration");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [error, setError] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "success">("idle");
 
-  async function onSubmit(e: React.FormEvent) {
+  function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("loading");
-    setError(null);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, intent, message }),
-      });
-      const data = (await res.json()) as { ok?: boolean; error?: string };
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error ?? "Something went wrong.");
-      }
-      setStatus("success");
-      setName("");
-      setEmail("");
-      setMessage("");
-    } catch (err) {
-      setStatus("error");
-      setError(err instanceof Error ? err.message : "Failed to send.");
-    }
+    const subject = encodeURIComponent(`[Portfolio] ${intent} — ${name}`);
+    const body = encodeURIComponent(
+      `Intent: ${intent}\n\n${message}\n\n— ${name}\n${email}`
+    );
+    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+    setStatus("success");
+    setName("");
+    setEmail("");
+    setMessage("");
   }
 
   return (
@@ -61,18 +49,18 @@ export function ContactForm() {
               </span>
             </motion.div>
             <h3 className="font-[family-name:var(--font-clash)] text-2xl text-white">
-              Message received
+              Opening your email
             </h3>
             <p className="mx-auto mt-3 max-w-md text-sm text-[var(--color-muted)]">
-              Thank you for reaching out. If email delivery is configured, you will hear
-              back shortly. Otherwise, your note was logged for review.
+              Your mail app should open with a draft to {site.email}. Send it when you are
+              ready — I read every thoughtful message.
             </p>
             <button
               type="button"
               onClick={() => setStatus("idle")}
               className="mt-8 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm text-white/90 transition hover:bg-white/10"
             >
-              Send another message
+              Back to form
             </button>
           </motion.div>
         ) : (
@@ -146,42 +134,33 @@ export function ContactForm() {
               />
             </label>
 
-            {error && (
-              <p className="text-sm text-rose-300" role="alert">
-                {error}
-              </p>
-            )}
-
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-xs text-[var(--color-muted)]">
-                Delivered via API — configure{" "}
-                <code className="rounded bg-white/5 px-1 py-0.5 text-[11px] text-white/70">
-                  RESEND_API_KEY
-                </code>{" "}
-                +{" "}
-                <code className="rounded bg-white/5 px-1 py-0.5 text-[11px] text-white/70">
-                  CONTACT_TO
-                </code>{" "}
-                for live email.
+                Static site (GitHub Pages) — submits via your email app. Or mail{" "}
+                <a className="text-white/90 hover:underline" href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>{" "}
+                directly.
               </p>
               <button
                 type="submit"
-                disabled={status === "loading"}
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#5b6cff] to-[#8b5cf6] px-8 py-3 text-sm font-semibold text-white shadow-[0_0_40px_var(--color-glow)] transition hover:brightness-110 disabled:opacity-60"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#5b6cff] to-[#8b5cf6] px-8 py-3 text-sm font-semibold text-white shadow-[0_0_40px_var(--color-glow)] transition hover:brightness-110"
               >
-                {status === "loading" ? "Sending…" : "Send message"}
+                Send message
               </button>
             </div>
           </motion.form>
         )}
       </AnimatePresence>
 
-      <p className="relative mt-8 text-center text-xs text-[var(--color-muted)]">
-        Prefer direct email?{" "}
-        <a className="text-white/90 hover:underline" href={`mailto:${site.email}`}>
-          {site.email}
-        </a>
-      </p>
+      {status === "idle" && (
+        <p className="relative mt-8 text-center text-xs text-[var(--color-muted)]">
+          Prefer direct email?{" "}
+          <a className="text-white/90 hover:underline" href={`mailto:${site.email}`}>
+            {site.email}
+          </a>
+        </p>
+      )}
     </div>
   );
 }
