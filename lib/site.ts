@@ -73,16 +73,17 @@ export const awardsDetailed = [
   },
 ] as const;
 
+/** [longitude, latitude] for react-simple-maps Marker */
 export const mapPins = [
-  { id: "nyc", label: "New York", x: 24, y: 36 },
-  { id: "bos", label: "Boston", x: 28, y: 34 },
-  { id: "ct", label: "Connecticut", x: 27, y: 35 },
-  { id: "mia", label: "Miami", x: 22, y: 42 },
-  { id: "orl", label: "Orlando", x: 23, y: 43 },
-  { id: "il", label: "Illinois", x: 20, y: 35 },
-  { id: "ad", label: "Abu Dhabi", x: 62, y: 44 },
-  { id: "dxb", label: "Dubai", x: 63, y: 43 },
-  { id: "zan", label: "Zanzibar", x: 57, y: 52 },
+  { id: "nyc", label: "New York", coordinates: [-74.006, 40.7128] as [number, number] },
+  { id: "bos", label: "Boston", coordinates: [-71.0589, 42.3601] as [number, number] },
+  { id: "ct", label: "Connecticut", coordinates: [-72.6734, 41.7658] as [number, number] },
+  { id: "mia", label: "Miami", coordinates: [-80.1918, 25.7617] as [number, number] },
+  { id: "orl", label: "Orlando", coordinates: [-81.3792, 28.5383] as [number, number] },
+  { id: "il", label: "Illinois", coordinates: [-87.6298, 41.8781] as [number, number] },
+  { id: "ad", label: "Abu Dhabi", coordinates: [54.3773, 24.4539] as [number, number] },
+  { id: "dxb", label: "Dubai", coordinates: [55.2708, 25.2048] as [number, number] },
+  { id: "zan", label: "Zanzibar", coordinates: [39.2026, -6.1659] as [number, number] },
 ] as const;
 
 export const projects = [

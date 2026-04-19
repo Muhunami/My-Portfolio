@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/paths";
 
 export function Footer() {
   return (
@@ -110,7 +111,7 @@ export function Footer() {
             Privacy
           </Link>
           <span className="text-white/10">|</span>
-          <a href="/sitemap.xml" className="hover:text-white">
+          <a href={withBase("/sitemap.xml")} className="hover:text-white">
             Sitemap
           </a>
         </div>

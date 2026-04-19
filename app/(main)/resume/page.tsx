@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { site, skillBadges } from "@/lib/site";
+import { withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Skills",
@@ -25,7 +26,7 @@ export default function ResumePage() {
           </p>
         </div>
         <a
-          href="/resume.pdf"
+          href={withBase("/resume.pdf")}
           download
           className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
         >
