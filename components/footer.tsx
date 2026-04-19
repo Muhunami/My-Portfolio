@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { site } from "@/lib/site";
 import { withBase } from "@/lib/paths";
 
@@ -96,13 +95,7 @@ export function Footer() {
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="mx-auto mt-14 flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-[var(--color-muted)] sm:flex-row"
-      >
+      <div className="mx-auto mt-14 flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-[var(--color-muted)] sm:flex-row">
         <p>
           © {new Date().getFullYear()} {site.name}
         </p>
@@ -115,7 +108,7 @@ export function Footer() {
             Sitemap
           </a>
         </div>
-      </motion.div>
+      </div>
     </footer>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CursorGlow } from "@/components/cursor-glow";
-import { PageTransition } from "@/components/page-transition";
 import { SiteShell } from "@/components/site-shell";
 
 const inter = Inter({
@@ -79,7 +78,7 @@ export default function RootLayout({
         <SiteShell>
           <div className="noise" aria-hidden />
           <CursorGlow />
-          <PageTransition>{children}</PageTransition>
+          {children}
         </SiteShell>
       </body>
     </html>
