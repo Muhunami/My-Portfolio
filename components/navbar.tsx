@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import { site } from "@/lib/site";
 
 const links = [
@@ -36,19 +35,14 @@ export function Navbar() {
               <li key={l.href}>
                 <Link
                   href={l.href}
+                  prefetch
+                  scroll
                   className={`relative rounded-full px-3 py-2.5 text-sm font-medium transition ${
                     active
-                      ? "text-white"
+                      ? "bg-white/5 text-white ring-1 ring-white/10"
                       : "text-[var(--color-muted)] hover:text-[var(--color-silver)]"
                   }`}
                 >
-                  {active && (
-                    <motion.span
-                      layoutId="nav-pill"
-                      className="absolute inset-0 -z-10 rounded-full bg-white/5 ring-1 ring-white/10"
-                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                    />
-                  )}
                   {l.label}
                 </Link>
               </li>
@@ -59,6 +53,8 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/contact"
+            prefetch
+            scroll
             className="hidden min-h-[44px] items-center rounded-full bg-gradient-to-r from-[#5b6cff] to-[#8b5cf6] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_40px_var(--color-glow)] transition hover:brightness-110 sm:inline-flex"
           >
             Let&apos;s talk
@@ -74,7 +70,9 @@ export function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`whitespace-nowrap rounded-full px-3.5 py-2.5 text-xs font-medium min-h-[44px] flex items-center ${
+                prefetch
+                scroll
+                className={`flex min-h-[44px] items-center whitespace-nowrap rounded-full px-3.5 py-2.5 text-xs font-medium ${
                   active ? "bg-white/10 text-white" : "text-[var(--color-muted)]"
                 }`}
               >

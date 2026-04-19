@@ -45,7 +45,12 @@ export default function BlogIndexPage() {
       </ScrollReveal>
 
       <p className="mt-10 text-center text-sm text-[var(--color-muted)]">
-        <Link href="/contact" className="text-[var(--color-silver)] hover:text-white">
+        <Link
+          prefetch
+          scroll
+          href="/contact"
+          className="text-[var(--color-silver)] hover:text-white"
+        >
           Contact me
         </Link>{" "}
         — I&apos;d love to hear what inspires you too.

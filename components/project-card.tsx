@@ -51,6 +51,8 @@ export function ProjectCard({
           </div>
         )}
         <Link
+          prefetch
+          scroll
           href={href}
           className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white/90 transition hover:gap-3"
         >

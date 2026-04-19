@@ -60,6 +60,8 @@ export default function ResumePage() {
             can be replaced with your export.
           </p>
           <Link
+            prefetch
+            scroll
             href="/contact"
             className="mt-6 inline-flex rounded-full bg-gradient-to-r from-[#5b6cff] to-[#8b5cf6] px-8 py-3 text-sm font-semibold text-white shadow-[0_0_40px_var(--color-glow)]"
           >

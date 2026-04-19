@@ -49,12 +49,16 @@ export function HomeContent() {
             className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
           >
             <Link
+              prefetch
+              scroll
               href="/portfolio"
               className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-[var(--color-ink)] shadow-[0_20px_60px_rgba(255,255,255,0.12)] transition hover:-translate-y-0.5 sm:w-auto"
             >
               View My Work
             </Link>
             <Link
+              prefetch
+              scroll
               href="/contact"
               className="glass inline-flex w-full items-center justify-center rounded-full px-8 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 sm:w-auto"
             >

@@ -29,17 +29,17 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-[var(--color-silver)]">
               <li>
-                <Link className="hover:text-white" href="/portfolio">
+                <Link prefetch scroll className="hover:text-white" href="/portfolio">
                   Projects
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-white" href="/resume">
+                <Link prefetch scroll className="hover:text-white" href="/resume">
                   Skills
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-white" href="/blog">
+                <Link prefetch scroll className="hover:text-white" href="/blog">
                   Insights
                 </Link>
               </li>
@@ -107,7 +107,7 @@ export function Footer() {
           © {new Date().getFullYear()} {site.name}
         </p>
         <div className="flex gap-4">
-          <Link href="/privacy" className="hover:text-white">
+          <Link prefetch scroll href="/privacy" className="hover:text-white">
             Privacy
           </Link>
           <span className="text-white/10">|</span>
