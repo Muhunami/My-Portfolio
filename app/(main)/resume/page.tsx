@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 
 const education = [
   {
-    school: "Northfield Academy",
-    program: "Honors STEM + Humanities",
+    school: "Your school — edit in resume/page.tsx",
+    program: "STEM + Humanities",
     years: "2023 — Present",
-    detail: "Debate captain · MUN leadership · Independent research in AI ethics.",
+    detail: "Leadership, writing, and independent projects in tech and rhetoric.",
   },
 ] as const;
 
@@ -31,7 +31,7 @@ const experience = [
   },
   {
     role: "Student Government — Executive Board",
-    org: "Northfield Academy",
+    org: "Your school — edit in resume/page.tsx",
     years: "2023 — Present",
     points: [
       "Led cross-functional initiatives spanning communications and student life.",
@@ -47,8 +47,8 @@ const certs = [
 ] as const;
 
 const leadership = [
-  "Debate Team Captain — strategy, training pipelines, tournament logistics",
-  "MUN Delegation Head — research briefs, bloc coordination, crisis simulations",
+  "Speaking & rhetoric — strategy, training, and tournament logistics",
+  "Delegation lead — research briefs, coordination, and stakeholder alignment",
   "Tech Club Lead — workshops on modern frontend tooling and product taste",
 ] as const;
 

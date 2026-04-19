@@ -1,10 +1,11 @@
 export const site = {
-  name: "Jordan Mercer",
-  tagline: "Architect of ideas. Builder of momentum.",
-  email: "hello@jordanmercer.com",
+  name: "Manuel Muhunami",
+  initials: "MM",
+  tagline: "I build ideas in code, writing, and conversation.",
+  email: "hello@manuelmuhunami.com",
   social: {
     linkedin: "https://linkedin.com",
-    github: "https://github.com",
+    github: "https://github.com/Muhunami",
     twitter: "https://twitter.com",
     instagram: "https://instagram.com",
     whatsapp: "https://wa.me/10000000000",
@@ -15,45 +16,45 @@ export const site = {
 };
 
 export const heroRoles = [
+  "Builder",
+  "Writer",
   "Student Leader",
-  "Future Founder",
-  "Debate & MUN Strategist",
   "Creative Thinker",
-  "Global Visionary",
+  "Future Founder",
 ] as const;
 
 export const stats = [
   { label: "Projects shipped", value: "24" },
-  { label: "Debate rounds won", value: "47" },
-  { label: "MUN awards", value: "9" },
+  { label: "Essays & posts", value: "47" },
+  { label: "Collaborations", value: "9" },
   { label: "Cities explored", value: "18" },
 ] as const;
 
 export const testimonials = [
   {
     quote:
-      "Jordan brings clarity where others bring noise. A rare mix of empathy and strategic rigor.",
+      "Manuel brings clarity where others bring noise. A rare mix of empathy and strategic rigor.",
     name: "Dr. Elena Voss",
-    role: "Debate Coach",
+    role: "Mentor",
   },
   {
     quote:
-      "The most composed operator in the room—whether it’s a crisis committee or a product sprint.",
+      "The most composed operator in the room—whether it is a sprint review or a student forum.",
     name: "Marcus Chen",
-    role: "Startup Mentor",
+    role: "Advisor",
   },
   {
     quote:
       "Precision thinking, cinematic storytelling, and relentless follow-through.",
     name: "Priya Nair",
-    role: "MUN Director",
+    role: "Collaborator",
   },
 ] as const;
 
 export const awards = [
-  { title: "Best Delegate — Crisis", org: "Global MUN Summit", year: "2025" },
-  { title: "National Debate Finalist", org: "National Forensics League", year: "2024" },
-  { title: "Innovation Grant", org: "Youth Entrepreneurship Fund", year: "2024" },
+  { title: "Innovation Grant", org: "Youth Entrepreneurship Fund", year: "2025" },
+  { title: "National Program Finalist", org: "National Leadership Cohort", year: "2024" },
+  { title: "Writing & Rhetoric Award", org: "Regional Honors Council", year: "2024" },
   { title: "Leadership Excellence", org: "Student Government", year: "2023" },
 ] as const;
 
@@ -85,7 +86,7 @@ export const blogPosts = [
   {
     slug: "mindset-under-pressure",
     title: "Mindset Under Pressure",
-    excerpt: "What debate taught me about staying lucid when stakes are high.",
+    excerpt: "What competitive speaking taught me about staying lucid when stakes are high.",
     category: "Mindset",
     date: "2026-01-18",
     readTime: "7 min",
@@ -113,9 +114,9 @@ export const projects = [
   },
   {
     id: "mun-strategy-lab",
-    title: "Debate / MUN Strategy Lab",
+    title: "Strategy & Research Lab",
     description:
-      "Research pipelines, bloc mapping, and crisis simulations distilled into repeatable playbooks.",
+      "Research pipelines and synthesis distilled into repeatable playbooks for writing and debate.",
     stack: ["Notion API", "Figma", "Research OS"],
     accent: "from-blue-500/20 to-cyan-500/10",
     href: "#",

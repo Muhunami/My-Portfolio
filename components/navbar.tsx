@@ -5,11 +5,13 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useTheme } from "./theme-provider";
 
+import { site } from "@/lib/site";
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/resume", label: "Résumé" },
+  { href: "/portfolio", label: "Projects" },
+  { href: "/resume", label: "Skills" },
   { href: "/blog", label: "Insights" },
   { href: "/contact", label: "Contact" },
 ];
@@ -23,10 +25,10 @@ export function Navbar() {
       <nav className="glass relative mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-2xl px-4 py-3 sm:px-6">
         <Link href="/" className="group flex items-center gap-2">
           <span className="font-[family-name:var(--font-clash)] text-lg font-semibold tracking-tight text-[var(--color-silver)] transition group-hover:text-white">
-            JM
+            {site.initials}
           </span>
-          <span className="hidden text-xs uppercase tracking-[0.2em] text-[var(--color-muted)] sm:inline">
-            Portfolio
+          <span className="hidden font-medium text-[var(--color-silver)] transition group-hover:text-white sm:inline">
+            Manuel
           </span>
         </Link>
 

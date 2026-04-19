@@ -5,8 +5,8 @@ import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Selected projects — AI, debate strategy, editorial systems, and media.",
+  title: "Projects",
+  description: "Selected work — AI, web, editorial systems, and media.",
 };
 
 export default function PortfolioPage() {
@@ -14,7 +14,7 @@ export default function PortfolioPage() {
     <div className="mx-auto max-w-6xl">
       <header className="mx-auto max-w-3xl text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">
-          Portfolio
+          Projects
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           Work that feels considered — end to end.

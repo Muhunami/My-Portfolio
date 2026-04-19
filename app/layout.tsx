@@ -11,37 +11,37 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://muhunami.github.io/My-Portfolio";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Portfolio — Student Leader & Future Founder",
-    template: "%s — Portfolio",
+    default: "Manuel Muhunami | Portfolio",
+    template: "%s — Manuel Muhunami",
   },
   description:
-    "Luxury minimal portfolio: debate & MUN strategist, creative thinker, and builder of thoughtful digital experiences.",
+    "Personal portfolio — building ideas in code, writing, and conversation.",
   keywords: [
     "portfolio",
-    "student leader",
-    "debate",
-    "MUN",
-    "entrepreneur",
+    "Manuel Muhunami",
     "web development",
+    "writing",
+    "student",
   ],
-  authors: [{ name: "Portfolio" }],
+  authors: [{ name: "Manuel Muhunami" }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Portfolio — Student Leader & Future Founder",
+    title: "Manuel Muhunami | Portfolio",
     description:
-      "Debate & MUN strategist, creative thinker, and builder of premium digital experiences.",
+      "I build ideas in code, writing, and conversation.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio — Student Leader & Future Founder",
+    title: "Manuel Muhunami | Portfolio",
     description:
-      "Luxury minimal portfolio for an ambitious student and future founder.",
+      "Personal portfolio — code, writing, and conversation.",
   },
   robots: { index: true, follow: true },
 };

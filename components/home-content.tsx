@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HeroBackground } from "@/components/hero-background";
-import { RotatingText } from "@/components/rotating-text";
 import { SocialDock } from "@/components/social-dock";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { stats, heroRoles, site, awards } from "@/lib/site";
+import { stats, site, awards } from "@/lib/site";
 import { TestimonialsSlider } from "@/components/testimonials-slider";
 import { WorldMap } from "@/components/world-map";
 import { SpotifyWidget } from "@/components/spotify-widget";
@@ -40,15 +39,7 @@ export function HomeContent() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.16 }}
-            className="mx-auto mt-6 max-w-xl text-lg text-[var(--color-muted)] sm:text-xl"
-          >
-            <RotatingText items={heroRoles} />
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-            className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[var(--color-muted)] sm:text-base"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-silver)] sm:text-xl"
           >
             {site.tagline}
           </motion.p>
@@ -63,7 +54,7 @@ export function HomeContent() {
               href="/portfolio"
               className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-[var(--color-ink)] shadow-[0_20px_60px_rgba(255,255,255,0.12)] transition hover:-translate-y-0.5 sm:w-auto"
             >
-              View Portfolio
+              View My Work
             </Link>
             <Link
               href="/contact"
@@ -85,11 +76,11 @@ export function HomeContent() {
               Current focus
             </p>
             <p className="mt-3 text-lg font-medium text-[var(--color-silver)]">
-              Building an AI-assisted research stack for debate prep — fast signal,
-              slow judgment, zero theatrics.
+              Shipping thoughtful interfaces and clear writing — code, narrative, and
+              collaboration in one loop.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Systems thinking", "Narrative design", "Policy fluency"].map((t) => (
+              {["Code", "Writing", "Conversation"].map((t) => (
                 <span
                   key={t}
                   className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-[var(--color-muted)]"

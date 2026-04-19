@@ -94,7 +94,7 @@ export function ContactForm() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="mt-2 w-full rounded-2xl border border-white/10 bg-[var(--color-surface)]/80 px-4 py-3 text-sm text-white outline-none ring-0 transition placeholder:text-white/25 focus:border-white/25"
-                  placeholder="Jordan Mercer"
+                  placeholder="Manuel Muhunami"
                 />
               </label>
               <label className="block text-left">

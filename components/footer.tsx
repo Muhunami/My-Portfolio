@@ -28,12 +28,12 @@ export function Footer() {
             <ul className="space-y-2 text-[var(--color-silver)]">
               <li>
                 <Link className="hover:text-white" href="/portfolio">
-                  Portfolio
+                  Projects
                 </Link>
               </li>
               <li>
                 <Link className="hover:text-white" href="/resume">
-                  Résumé
+                  Skills
                 </Link>
               </li>
               <li>

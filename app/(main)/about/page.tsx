@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 const timeline = [
   {
     year: "2026",
-    title: "Research OS for debate",
-    detail: "Shipped a modular prep pipeline blending human judgment with retrieval.",
+    title: "Research & writing systems",
+    detail: "Shipped a modular pipeline blending human judgment with retrieval.",
   },
   {
     year: "2025",
-    title: "National finals + MUN circuit",
-    detail: "Finalist in national debate; multiple gavels across crisis committees.",
+    title: "National programs & leadership",
+    detail: "Finalist-level performance across speaking and student initiatives.",
   },
   {
     year: "2024",
@@ -54,11 +54,11 @@ export default function AboutPage() {
           About
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          Built in debate rounds. Refined in code.
+          Built in conversation. Refined in code.
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
-          I am {site.name} — a student operator obsessed with narrative, systems, and
-          the quiet confidence that comes from preparation you can feel in your bones.
+          I am {site.name} — I care about narrative, systems, and the quiet confidence
+          that comes from work you can stand behind.
         </p>
       </header>
 
@@ -67,18 +67,18 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Story"
             title="The thread"
-            subtitle="From competitive speaking to product thinking — the same muscle: synthesize fast, decide calmly, communicate with precision."
+            subtitle="From writing and speaking to product thinking — synthesize fast, decide calmly, communicate with precision."
           />
           <div className="glass rounded-3xl p-6 text-sm leading-relaxed text-[var(--color-muted)] sm:p-8 sm:text-base">
             <p>
-              My work sits at the intersection of rhetoric and systems. Debate taught me
+              My work sits at the intersection of language and systems. Writing taught me
               to love constraints; building taught me to love iteration. I chase outcomes
               that feel inevitable in hindsight — because the foundations were laid with
               care.
             </p>
             <p className="mt-4">
-              Outside competitions, I write, prototype, and study how technology can
-              amplify judgment without replacing taste. If that resonates, we should talk.
+              I write, prototype, and study how technology can amplify judgment without
+              replacing taste. If that resonates, we should talk.
             </p>
           </div>
         </ScrollReveal>
