@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { HeroBackground } from "@/components/hero-background";
 import { SocialDock } from "@/components/social-dock";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -17,37 +16,17 @@ export function HomeContent() {
       <section className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)]/40 pb-24 pt-16 sm:pt-24">
         <HeroBackground />
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center sm:px-10">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-muted)]"
-          >
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-muted)]">
             Calm. Observant. Innovator
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.08 }}
-            className="mt-6 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl"
-          >
+          </p>
+          <h1 className="mt-6 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
             {site.name}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.16 }}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-silver)] sm:text-xl"
-          >
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-silver)] sm:text-xl">
             {site.tagline}
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45, duration: 0.55 }}
-            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
-          >
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <Link
               prefetch
               scroll
@@ -64,16 +43,11 @@ export function HomeContent() {
             >
               Contact Me
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         <div className="relative z-10 mx-auto mt-16 max-w-6xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-            className="glass grid gap-8 rounded-3xl p-6 sm:p-8 lg:grid-cols-2"
-          >
+          <div className="glass grid gap-8 rounded-3xl p-6 sm:p-8 lg:grid-cols-2">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
                 Current focus
@@ -92,7 +66,7 @@ export function HomeContent() {
                 “Imperfections are the perfection of life.”
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -124,32 +98,30 @@ export function HomeContent() {
           <div className="absolute left-[11px] top-3 bottom-3 w-px bg-gradient-to-b from-white/25 via-white/10 to-transparent sm:left-4" />
           <ol className="space-y-6">
             {awardsDetailed.map((entry, idx) => (
-              <ScrollReveal key={`${entry.year}-${idx}`} delay={idx * 0.04}>
-                <li className="relative pl-10 sm:pl-12">
-                  <span className="absolute left-0 top-1 flex min-h-[1.75rem] min-w-[1.75rem] items-center justify-center rounded-full border border-white/15 bg-[var(--color-surface)] text-[10px] font-semibold text-white">
-                    {entry.year.slice(2)}
-                  </span>
-                  <div className="glass rounded-3xl p-6 sm:p-7">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                      {entry.year}
-                    </p>
-                    <div className="mt-3 space-y-2">
-                      {entry.lines.map((line, li) => (
-                        <p
-                          key={line}
-                          className={
-                            li === 0
-                              ? "font-medium text-white"
-                              : "text-sm leading-relaxed text-[var(--color-muted)]"
-                          }
-                        >
-                          {line}
-                        </p>
-                      ))}
-                    </div>
+              <li key={`${entry.year}-${idx}`} className="relative pl-10 sm:pl-12">
+                <span className="absolute left-0 top-1 flex min-h-[1.75rem] min-w-[1.75rem] items-center justify-center rounded-full border border-white/15 bg-[var(--color-surface)] text-[10px] font-semibold text-white">
+                  {entry.year.slice(2)}
+                </span>
+                <div className="glass rounded-3xl p-6 sm:p-7">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                    {entry.year}
+                  </p>
+                  <div className="mt-3 space-y-2">
+                    {entry.lines.map((line, li) => (
+                      <p
+                        key={line}
+                        className={
+                          li === 0
+                            ? "font-medium text-white"
+                            : "text-sm leading-relaxed text-[var(--color-muted)]"
+                        }
+                      >
+                        {line}
+                      </p>
+                    ))}
                   </div>
-                </li>
-              </ScrollReveal>
+                </div>
+              </li>
             ))}
           </ol>
         </div>

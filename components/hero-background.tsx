@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ParticlesSoft } from "./particles-soft";
 
 export function HeroBackground() {
@@ -37,19 +36,14 @@ export function HeroBackground() {
 
       <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]">
         {Array.from({ length: 48 }).map((_, i) => (
-          <motion.span
+          <span
             key={i}
-            className="absolute h-0.5 w-0.5 rounded-full bg-white/60"
+            className="hero-star absolute h-0.5 w-0.5 rounded-full bg-white/60"
             style={{
               left: `${(i * 73) % 100}%`,
               top: `${(i * 41) % 100}%`,
-            }}
-            animate={{ opacity: [0.15, 0.9, 0.15], y: [0, -6, 0] }}
-            transition={{
-              duration: 4 + (i % 5),
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: (i % 10) * 0.2,
+              animationDelay: `${(i % 10) * 0.2}s`,
+              animationDuration: `${4 + (i % 5)}s`,
             }}
           />
         ))}

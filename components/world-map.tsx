@@ -7,7 +7,6 @@ import {
   Geography,
   Marker,
 } from "react-simple-maps";
-import { motion, AnimatePresence } from "framer-motion";
 import { mapPins } from "@/lib/site";
 
 const geoUrl =
@@ -73,15 +72,13 @@ export function WorldMap() {
                   style={{ cursor: "pointer" }}
                 >
                   <circle r={14} fill="transparent" />
-                  <motion.circle
-                    r={5.5}
+                  <circle
+                    r={hovered === pin.id ? 7 : 5.5}
                     fill="url(#mapPinGrad)"
                     stroke="rgba(255,255,255,0.4)"
                     strokeWidth={1.2}
                     filter="url(#mapPinGlow)"
-                    initial={false}
-                    animate={{ scale: hovered === pin.id ? 1.4 : 1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 22 }}
+                    className="transition-[r] duration-200"
                   />
                 </g>
               </Marker>
@@ -91,18 +88,11 @@ export function WorldMap() {
 
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,5,8,0)_35%,rgba(5,5,8,0.55)_100%)]" />
 
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 6 }}
-              className="pointer-events-none absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded-full border border-white/15 bg-[var(--color-ink)]/95 px-4 py-2 text-xs font-medium text-white shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-md"
-            >
-              {mapPins.find((p) => p.id === hovered)?.label}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {hovered && (
+          <div className="pointer-events-none absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded-full border border-white/15 bg-[var(--color-ink)]/95 px-4 py-2 text-xs font-medium text-white shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-md">
+            {mapPins.find((p) => p.id === hovered)?.label}
+          </div>
+        )}
       </div>
 
       <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">

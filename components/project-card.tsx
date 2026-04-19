@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ProjectPreview } from "@/components/project-preview";
 
 type Preview = "mirror" | "mun" | "blog" | "web" | "media";
@@ -22,11 +21,7 @@ export function ProjectCard({
   preview: Preview;
 }) {
   return (
-    <motion.article
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 260, damping: 22 }}
-      className="group relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)]/50"
-    >
+    <article className="group relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)]/50 transition-transform duration-300 hover:-translate-y-1.5">
       <div
         className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${accent} opacity-60 transition group-hover:opacity-100`}
       />
@@ -60,6 +55,6 @@ export function ProjectCard({
           <span aria-hidden>→</span>
         </Link>
       </div>
-    </motion.article>
+    </article>
   );
 }

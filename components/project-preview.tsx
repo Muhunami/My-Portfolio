@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 type Variant = "mirror" | "mun" | "blog" | "web" | "media";
 
 export function ProjectPreview({ variant }: { variant: Variant }) {
@@ -13,7 +11,7 @@ export function ProjectPreview({ variant }: { variant: Variant }) {
       {variant === "blog" && <BlogUi />}
       {variant === "web" && <WebUi />}
       {variant === "media" && <MediaUi />}
-      <motion.div
+      <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-transparent to-transparent opacity-80"
       />
@@ -40,12 +38,9 @@ function MirrorUi() {
 function MunUi() {
   return (
     <div className="absolute inset-4 grid grid-cols-3 gap-2">
-      {["Bloc", "Crisis", "Intel"].map((t, i) => (
-        <motion.div
+      {["Bloc", "Crisis", "Intel"].map((t) => (
+        <div
           key={t}
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05 * i }}
           className="rounded-lg border border-white/10 bg-white/[0.03] p-2"
         >
           <p className="text-[9px] font-semibold text-white/70">{t}</p>
@@ -53,7 +48,7 @@ function MunUi() {
             <div className="h-1 rounded bg-white/10" />
             <div className="h-1 w-2/3 rounded bg-white/10" />
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   );
