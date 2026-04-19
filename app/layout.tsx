@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { CursorGlow } from "@/components/cursor-glow";
 import { PageTransition } from "@/components/page-transition";
+import { SiteShell } from "@/components/site-shell";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,13 +20,12 @@ export const metadata: Metadata = {
     default: "Manuel Muhunami | Portfolio",
     template: "%s — Manuel Muhunami",
   },
-  description:
-    "Personal portfolio — building ideas in code, writing, and conversation.",
+  description: "I love solving problems. Portfolio of Manuel Muhunami.",
   keywords: [
     "portfolio",
     "Manuel Muhunami",
-    "web development",
-    "writing",
+    "computer science",
+    "Kenya",
     "student",
   ],
   authors: [{ name: "Manuel Muhunami" }],
@@ -34,23 +33,18 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     title: "Manuel Muhunami | Portfolio",
-    description:
-      "I build ideas in code, writing, and conversation.",
+    description: "I love solving problems.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Manuel Muhunami | Portfolio",
-    description:
-      "Personal portfolio — code, writing, and conversation.",
+    description: "I love solving problems.",
   },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#050508" },
-    { media: "(prefers-color-scheme: light)", color: "#f6f6f8" },
-  ],
+  themeColor: "#050508",
   width: "device-width",
   initialScale: 1,
 };
@@ -82,11 +76,11 @@ export default function RootLayout({
           } as React.CSSProperties
         }
       >
-        <ThemeProvider>
+        <SiteShell>
           <div className="noise" aria-hidden />
           <CursorGlow />
           <PageTransition>{children}</PageTransition>
-        </ThemeProvider>
+        </SiteShell>
       </body>
     </html>
   );

@@ -6,8 +6,7 @@ import { site } from "@/lib/site";
 const items = [
   { label: "LinkedIn", href: site.social.linkedin },
   { label: "GitHub", href: site.social.github },
-  { label: "X", href: site.social.twitter },
-  { label: "Instagram", href: site.social.instagram },
+  { label: "YouTube", href: site.social.youtube },
 ];
 
 export function SocialDock() {

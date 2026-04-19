@@ -6,10 +6,8 @@ import { HeroBackground } from "@/components/hero-background";
 import { SocialDock } from "@/components/social-dock";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { stats, site, awards } from "@/lib/site";
-import { TestimonialsSlider } from "@/components/testimonials-slider";
+import { site, awardsDetailed } from "@/lib/site";
 import { WorldMap } from "@/components/world-map";
-import { SpotifyWidget } from "@/components/spotify-widget";
 
 export function HomeContent() {
   return (
@@ -25,7 +23,7 @@ export function HomeContent() {
             transition={{ duration: 0.6 }}
             className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-muted)]"
           >
-            Precision · Poise · Purpose
+            Calm. Observant. Innovator
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
@@ -65,45 +63,31 @@ export function HomeContent() {
           </motion.div>
         </div>
 
-        <div className="relative z-10 mx-auto mt-16 grid max-w-6xl gap-6 px-6 lg:grid-cols-3">
+        <div className="relative z-10 mx-auto mt-16 max-w-6xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="glass rounded-3xl p-6 lg:col-span-2"
+            className="glass grid gap-8 rounded-3xl p-6 sm:p-8 lg:grid-cols-2"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
-              Current focus
-            </p>
-            <p className="mt-3 text-lg font-medium text-[var(--color-silver)]">
-              Shipping thoughtful interfaces and clear writing — code, narrative, and
-              collaboration in one loop.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {["Code", "Writing", "Conversation"].map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-[var(--color-muted)]"
-                >
-                  {t}
-                </span>
-              ))}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
+                Current focus
+              </p>
+              <p className="mt-3 text-lg font-medium leading-relaxed text-[var(--color-silver)]">
+                Building a unified community{" "}
+                <span className="gradient-text font-semibold">Bloomly</span>
+              </p>
             </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.62 }}
-            className="glass relative overflow-hidden rounded-3xl p-6"
-          >
-            <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-violet-500/20 blur-2xl" />
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
-              Quote
-            </p>
-            <p className="mt-4 font-[family-name:var(--font-clash)] text-xl leading-snug text-white">
-              “Ambition without taste is just noise.”
-            </p>
-            <p className="mt-3 text-sm text-[var(--color-muted)]">— Studio note, 2026</p>
+            <div className="relative border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+              <div className="pointer-events-none absolute -left-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-white/20 to-transparent lg:block" />
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
+                Quote
+              </p>
+              <p className="mt-4 font-[family-name:var(--font-clash)] text-xl leading-snug text-white">
+                “Imperfections are the perfection of life.”
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -111,78 +95,69 @@ export function HomeContent() {
       <section className="mx-auto mt-20 max-w-6xl">
         <ScrollReveal>
           <SectionHeading
-            eyebrow="Signal"
-            title="Numbers that track momentum, not vanity."
-            subtitle="Metrics chosen to reflect depth: shipped work, competitive wins, and the geography of curiosity."
+            eyebrow="Intellectual"
+            title="Defining success by the trail I leave behind: the problems I’ve solved, the rivals I’ve outpaced, and the new questions I’m brave enough to ask."
           />
-        </ScrollReveal>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s, idx) => (
-            <ScrollReveal key={s.label} delay={idx * 0.05}>
-              <div className="glass group rounded-3xl p-6 transition hover:-translate-y-1 hover:border-white/20">
-                <p className="font-[family-name:var(--font-clash)] text-4xl font-semibold text-white">
-                  {s.value}
-                </p>
-                <p className="mt-2 text-sm text-[var(--color-muted)]">{s.label}</p>
-                <div className="mt-4 h-px w-full bg-gradient-to-r from-white/25 to-transparent opacity-0 transition group-hover:opacity-100" />
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto mt-24 max-w-6xl">
-        <ScrollReveal>
-          <SectionHeading
-            eyebrow="Voices"
-            title="Trusted by coaches, mentors, and collaborators."
-          />
-        </ScrollReveal>
-        <ScrollReveal>
-          <TestimonialsSlider />
         </ScrollReveal>
       </section>
 
       <section className="mx-auto mt-24 max-w-6xl">
         <ScrollReveal>
-          <SectionHeading
-            eyebrow="Recognition"
-            title="Awards & milestones"
-            subtitle="A concise ledger of competitive craft and institutional trust."
-          />
+          <div className="mb-10 max-w-3xl">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
+              Recognition
+            </p>
+            <h2 className="font-[family-name:var(--font-clash)] text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Awards & Milestones
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+              A concise ledger of competitive craft, cultural distinction, and
+              institutional trust.
+            </p>
+          </div>
         </ScrollReveal>
-        <div className="grid gap-4 md:grid-cols-2">
-          {awards.map((a, idx) => (
-            <ScrollReveal key={a.title} delay={idx * 0.06}>
-              <div className="glass flex items-start justify-between gap-4 rounded-3xl p-6">
-                <div>
-                  <p className="font-medium text-white">{a.title}</p>
-                  <p className="mt-1 text-sm text-[var(--color-muted)]">{a.org}</p>
-                </div>
-                <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-[var(--color-silver)]">
-                  {a.year}
-                </span>
-              </div>
-            </ScrollReveal>
-          ))}
+        <div className="relative">
+          <div className="absolute left-[11px] top-3 bottom-3 w-px bg-gradient-to-b from-white/25 via-white/10 to-transparent sm:left-4" />
+          <ol className="space-y-6">
+            {awardsDetailed.map((entry, idx) => (
+              <ScrollReveal key={`${entry.year}-${idx}`} delay={idx * 0.04}>
+                <li className="relative pl-10 sm:pl-12">
+                  <span className="absolute left-0 top-1 flex min-h-[1.75rem] min-w-[1.75rem] items-center justify-center rounded-full border border-white/15 bg-[var(--color-surface)] text-[10px] font-semibold text-white">
+                    {entry.year.slice(2)}
+                  </span>
+                  <div className="glass rounded-3xl p-6 sm:p-7">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                      {entry.year}
+                    </p>
+                    <div className="mt-3 space-y-2">
+                      {entry.lines.map((line, li) => (
+                        <p
+                          key={line}
+                          className={
+                            li === 0
+                              ? "font-medium text-white"
+                              : "text-sm leading-relaxed text-[var(--color-muted)]"
+                          }
+                        >
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              </ScrollReveal>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section className="mx-auto mt-24 grid max-w-6xl gap-10 lg:grid-cols-2">
+      <section className="mx-auto mt-24 max-w-6xl">
         <ScrollReveal>
           <SectionHeading
             eyebrow="Atlas"
-            title="Goals on a map — where ambition meets geography."
+            title="Places I’ve been to — where memory meets geography."
           />
           <WorldMap />
-        </ScrollReveal>
-        <ScrollReveal delay={0.08}>
-          <SectionHeading
-            eyebrow="Soundtrack"
-            title="Focus, scored."
-            subtitle="A living playlist for deep work — swap the embed URL in site config."
-          />
-          <SpotifyWidget />
         </ScrollReveal>
       </section>
     </>

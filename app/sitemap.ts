@@ -1,16 +1,10 @@
 import type { MetadataRoute } from "next";
-import { blogBodies } from "@/lib/blog-content";
 
 export const dynamic = "force-static";
 
-const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muhunami.github.io/My-Portfolio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = Object.keys(blogBodies).map((slug) => ({
-    url: `${base}/blog/${slug}`,
-    lastModified: new Date(),
-  }));
-
   return [
     { url: `${base}/`, lastModified: new Date() },
     { url: `${base}/about`, lastModified: new Date() },
@@ -19,6 +13,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog`, lastModified: new Date() },
     { url: `${base}/contact`, lastModified: new Date() },
     { url: `${base}/privacy`, lastModified: new Date() },
-    ...posts,
   ];
 }

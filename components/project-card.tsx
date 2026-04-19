@@ -38,16 +38,18 @@ export function ProjectCard({
         <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
           {description}
         </p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {stack.map((s) => (
-            <span
-              key={s}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-[var(--color-silver)]"
-            >
-              {s}
-            </span>
-          ))}
-        </div>
+        {stack.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {stack.map((s) => (
+              <span
+                key={s}
+                className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-[var(--color-silver)]"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+        )}
         <Link
           href={href}
           className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white/90 transition hover:gap-3"

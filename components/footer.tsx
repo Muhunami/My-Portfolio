@@ -11,13 +11,14 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
         <div>
           <p className="font-[family-name:var(--font-clash)] text-2xl font-semibold tracking-tight text-white">
-            {site.name.split(" ")[0]}{" "}
-            <span className="text-[var(--color-muted)]">
-              {site.name.split(" ")[1]}
-            </span>
+            {site.firstName}{" "}
+            <span className="text-[var(--color-muted)]">{site.lastName}</span>
           </p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--color-muted)]">
             {site.tagline}
+          </p>
+          <p className="mt-6 text-sm italic text-[var(--color-silver)]/90">
+            Built with curiosity. Guided by vision.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
@@ -49,18 +50,33 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-[var(--color-silver)]">
               <li>
-                <a className="hover:text-white" href={site.social.linkedin}>
+                <a
+                  className="hover:text-white"
+                  href={site.social.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   LinkedIn
                 </a>
               </li>
               <li>
-                <a className="hover:text-white" href={site.social.github}>
-                  GitHub
+                <a
+                  className="hover:text-white"
+                  href={site.social.youtube}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  YouTube
                 </a>
               </li>
               <li>
-                <a className="hover:text-white" href={site.social.twitter}>
-                  X
+                <a
+                  className="hover:text-white"
+                  href={site.social.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
                 </a>
               </li>
             </ul>
@@ -86,7 +102,9 @@ export function Footer() {
         transition={{ duration: 0.5 }}
         className="mx-auto mt-14 flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-[var(--color-muted)] sm:flex-row"
       >
-        <p>© {new Date().getFullYear()} {site.name}. Crafted with intention.</p>
+        <p>
+          © {new Date().getFullYear()} {site.name}
+        </p>
         <div className="flex gap-4">
           <Link href="/privacy" className="hover:text-white">
             Privacy

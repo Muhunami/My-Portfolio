@@ -53,7 +53,7 @@ export function ContactForm() {
             </h3>
             <p className="mx-auto mt-3 max-w-md text-sm text-[var(--color-muted)]">
               Your mail app should open with a draft to {site.email}. Send it when you are
-              ready — I read every thoughtful message.
+              ready.
             </p>
             <button
               type="button"
@@ -130,17 +130,13 @@ export function ContactForm() {
                 onChange={(e) => setMessage(e.target.value)}
                 rows={5}
                 className="mt-2 w-full resize-none rounded-2xl border border-white/10 bg-[var(--color-surface)]/80 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-white/25"
-                placeholder="Tell me what you are building — context wins."
+                placeholder="Say hello — context helps."
               />
             </label>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-xs text-[var(--color-muted)]">
-                Static site (GitHub Pages) — submits via your email app. Or mail{" "}
-                <a className="text-white/90 hover:underline" href={`mailto:${site.email}`}>
-                  {site.email}
-                </a>{" "}
-                directly.
+                Opens your email client to reach me at {site.email}.
               </p>
               <button
                 type="submit"
@@ -155,7 +151,7 @@ export function ContactForm() {
 
       {status === "idle" && (
         <p className="relative mt-8 text-center text-xs text-[var(--color-muted)]">
-          Prefer direct email?{" "}
+          Prefer direct?{" "}
           <a className="text-white/90 hover:underline" href={`mailto:${site.email}`}>
             {site.email}
           </a>

@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ParticlesSoft } from "./particles-soft";
 
 export function HeroBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <ParticlesSoft />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(91,108,255,0.22),transparent_55%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(139,92,246,0.12),transparent_45%)]" />
 

@@ -12,13 +12,11 @@ export default function PrivacyPage() {
         Privacy
       </h1>
       <p className="mt-4 text-[var(--color-muted)]">
-        This site is a portfolio demonstration. Contact submissions may be logged to the
-        server console when email delivery is not configured. When you configure Resend
-        (or another provider), messages are processed only to respond to your inquiry.
+        This site is a static portfolio. The contact form opens your email app — nothing is
+        stored on a server when you use it.
       </p>
       <p className="mt-4 text-[var(--color-muted)]">
-        No third-party analytics are included by default. Embedded media (such as Spotify)
-        is subject to the respective provider&apos;s privacy policy.
+        External links (e.g. YouTube) are subject to those services&apos; privacy policies.
       </p>
     </div>
   );

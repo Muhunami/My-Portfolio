@@ -3,8 +3,7 @@ import { HomeContent } from "@/components/home-content";
 
 export const metadata: Metadata = {
   title: "Home",
-  description:
-    "Manuel Muhunami — building ideas in code, writing, and conversation.",
+  description: "Manuel Muhunami — I love solving problems.",
 };
 
 export default function HomePage() {

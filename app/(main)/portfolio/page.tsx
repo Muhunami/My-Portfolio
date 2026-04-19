@@ -6,7 +6,7 @@ import { projects } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Selected work — AI, web, editorial systems, and media.",
+  description: "Bloomly, Pro AI, MIRRAI — selected work.",
 };
 
 export default function PortfolioPage() {
@@ -17,15 +17,14 @@ export default function PortfolioPage() {
           Projects
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          Work that feels considered — end to end.
+          Ideas turned into systems.
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
-          Each card is a capsule: live preview, stack, story, and motion. Hover to feel the
-          craft — this is not a template; it is a system.
+          A few things I&apos;ve shaped — community, intelligence, and home.
         </p>
       </header>
 
-      <div className="mt-14 grid gap-6 md:grid-cols-2">
+      <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((p, idx) => (
           <ScrollReveal key={p.id} delay={idx * 0.05}>
             <ProjectCard
@@ -44,14 +43,14 @@ export default function PortfolioPage() {
         <div className="glass mt-16 rounded-[2rem] p-8 text-center sm:p-10">
           <SectionHeading
             eyebrow="Next"
-            title="Want a bespoke case study?"
-            subtitle="If you are hiring, collaborating, or commissioning — send context. I reply to thoughtful messages first."
+            title="Want to collaborate?"
+            subtitle="Reach out — I read thoughtful messages."
           />
           <a
             href="/contact"
             className="mt-4 inline-flex rounded-full bg-white px-8 py-3 text-sm font-semibold text-[var(--color-ink)] transition hover:-translate-y-0.5"
           >
-            Start a conversation
+            Contact
           </a>
         </div>
       </ScrollReveal>

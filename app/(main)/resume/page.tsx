@@ -2,62 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { SkillBar } from "@/components/skill-bar";
-import { site } from "@/lib/site";
+import { site, skillBadges } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Résumé",
-  description: "Education, experience, skills, certifications, and leadership.",
+  title: "Skills",
+  description: "Skills and strengths — Manuel Muhunami.",
 };
-
-const education = [
-  {
-    school: "Your school — edit in resume/page.tsx",
-    program: "STEM + Humanities",
-    years: "2023 — Present",
-    detail: "Leadership, writing, and independent projects in tech and rhetoric.",
-  },
-] as const;
-
-const experience = [
-  {
-    role: "Founding Builder — Personal Lab",
-    org: "Independent",
-    years: "2024 — Present",
-    points: [
-      "Shipped premium web experiences with performance budgets and motion design.",
-      "Built research workflows for competitive speaking with retrieval + synthesis.",
-    ],
-  },
-  {
-    role: "Student Government — Executive Board",
-    org: "Your school — edit in resume/page.tsx",
-    years: "2023 — Present",
-    points: [
-      "Led cross-functional initiatives spanning communications and student life.",
-      "Facilitated stakeholder alignment between faculty, students, and administration.",
-    ],
-  },
-] as const;
-
-const certs = [
-  "Google UX Foundations (sample)",
-  "Harvard CS50 (sample)",
-  "Debate & Parliamentary Excellence (sample)",
-] as const;
-
-const leadership = [
-  "Speaking & rhetoric — strategy, training, and tournament logistics",
-  "Delegation lead — research briefs, coordination, and stakeholder alignment",
-  "Tech Club Lead — workshops on modern frontend tooling and product taste",
-] as const;
-
-const skills = [
-  { label: "Strategic communication", value: 96 },
-  { label: "Research & synthesis", value: 92 },
-  { label: "Frontend engineering", value: 88 },
-  { label: "Product sense & UX writing", value: 90 },
-] as const;
 
 export default function ResumePage() {
   return (
@@ -65,13 +15,13 @@ export default function ResumePage() {
       <header className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">
-            Résumé / CV
+            Skills
           </p>
           <h1 className="mt-3 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            {site.name}
+            {site.firstName}
           </h1>
           <p className="mt-3 max-w-xl text-[var(--color-muted)]">
-            A single-page narrative you can skim in 30 seconds — or study in detail.
+            How I think, create, and show up.
           </p>
         </div>
         <a
@@ -84,116 +34,35 @@ export default function ResumePage() {
         </a>
       </header>
 
-      <section className="mt-14 grid gap-10 lg:grid-cols-2">
+      <section className="mt-14">
         <ScrollReveal>
-          <SectionHeading
-            eyebrow="Education"
-            title="Academic foundation"
-          />
-          {education.map((e) => (
-            <div key={e.school} className="glass rounded-3xl p-6">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-[family-name:var(--font-clash)] text-xl text-white">
-                  {e.school}
-                </h3>
-                <span className="text-xs text-[var(--color-muted)]">{e.years}</span>
-              </div>
-              <p className="mt-1 text-sm text-[var(--color-silver)]">{e.program}</p>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
-                {e.detail}
-              </p>
-            </div>
-          ))}
+          <SectionHeading eyebrow="Capabilities" title="What I bring" />
         </ScrollReveal>
-
-        <ScrollReveal delay={0.06}>
-          <SectionHeading
-            eyebrow="Skills"
-            title="Capability map"
-          />
-          <div className="glass space-y-5 rounded-3xl p-6 sm:p-8">
-            {skills.map((s, idx) => (
-              <SkillBar key={s.label} label={s.label} value={s.value} delay={0.1 * idx} />
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
-
-      <section className="mt-16">
-        <ScrollReveal>
-          <SectionHeading
-            eyebrow="Experience"
-            title="Roles & outcomes"
-          />
-        </ScrollReveal>
-        <div className="grid gap-4 md:grid-cols-2">
-          {experience.map((x, idx) => (
-            <ScrollReveal key={x.role} delay={idx * 0.05}>
-              <div className="glass h-full rounded-3xl p-6">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-[family-name:var(--font-clash)] text-lg text-white">
-                    {x.role}
-                  </h3>
-                  <span className="text-xs text-[var(--color-muted)]">{x.years}</span>
-                </div>
-                <p className="mt-1 text-sm text-[var(--color-silver)]">{x.org}</p>
-                <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
-                  {x.points.map((p) => (
-                    <li key={p} className="flex gap-2">
-                      <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-white/35" />
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          {skillBadges.map((s, idx) => (
+            <ScrollReveal key={s} delay={idx * 0.03}>
+              <span className="inline-flex rounded-full border border-white/12 bg-white/[0.04] px-4 py-2.5 text-sm text-[var(--color-silver)] transition hover:border-white/25 hover:bg-white/[0.06]">
+                {s}
+              </span>
             </ScrollReveal>
           ))}
         </div>
       </section>
 
-      <section className="mt-16 grid gap-10 lg:grid-cols-2">
-        <ScrollReveal>
-          <SectionHeading eyebrow="Certifications" title="Credentials" />
-          <ul className="space-y-3">
-            {certs.map((c) => (
-              <li
-                key={c}
-                className="glass rounded-2xl px-4 py-3 text-sm text-[var(--color-silver)]"
-              >
-                {c}
-              </li>
-            ))}
-          </ul>
-        </ScrollReveal>
-        <ScrollReveal delay={0.06}>
-          <SectionHeading eyebrow="Leadership" title="Institutional trust" />
-          <ul className="space-y-3">
-            {leadership.map((l) => (
-              <li
-                key={l}
-                className="glass rounded-2xl px-4 py-3 text-sm leading-relaxed text-[var(--color-muted)]"
-              >
-                {l}
-              </li>
-            ))}
-          </ul>
-        </ScrollReveal>
-      </section>
-
       <ScrollReveal>
         <div className="glass mt-16 rounded-[2rem] p-8 text-center sm:p-10">
           <p className="text-sm text-[var(--color-muted)]">
-            Replace the placeholder PDF in{" "}
+            PDF in{" "}
             <code className="rounded bg-white/5 px-1.5 py-0.5 text-xs text-white/80">
               /public/resume.pdf
             </code>{" "}
-            with your final export.
+            can be replaced with your export.
           </p>
           <Link
             href="/contact"
             className="mt-6 inline-flex rounded-full bg-gradient-to-r from-[#5b6cff] to-[#8b5cf6] px-8 py-3 text-sm font-semibold text-white shadow-[0_0_40px_var(--color-glow)]"
           >
-            Request references
+            Get in touch
           </Link>
         </div>
       </ScrollReveal>
