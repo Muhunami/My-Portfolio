@@ -123,14 +123,32 @@ export function AdminEditor() {
           Site admin
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-[var(--color-muted)]">
-          Admin is disabled. Add{" "}
-          <code className="rounded bg-white/10 px-1.5 py-0.5 text-[var(--color-silver)]">
-            NEXT_PUBLIC_ADMIN_PASSWORD=your_secret
-          </code>{" "}
-          to <code className="rounded bg-white/10 px-1.5">.env.local</code> (local) or to
-          your GitHub Actions build env (for the live site), then rebuild. The password is
-          embedded in the client bundle — treat it as casual access control only; anyone
-          with the bundle can extract it.
+          This build did not include a password (the unlock screen only appears after a
+          successful deploy with the variable set). Fix it, then redeploy:
+        </p>
+        <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-[var(--color-muted)]">
+          <li>
+            <strong className="font-medium text-[var(--color-silver)]">GitHub:</strong> add
+            a secret named exactly{" "}
+            <code className="rounded bg-white/10 px-1.5 text-[var(--color-silver)]">
+              ADMIN_PASSWORD
+            </code>{" "}
+            (Repository secrets, or Environment → <code className="text-[var(--color-silver)]">github-pages</code>).
+            The workflow maps it into the build.
+          </li>
+          <li>
+            Wait for <strong className="font-medium text-[var(--color-silver)]">Actions → Deploy to GitHub Pages</strong>{" "}
+            to finish after you push, or re-run the failed workflow.
+          </li>
+          <li>
+            <strong className="font-medium text-[var(--color-silver)]">Local dev:</strong>{" "}
+            <code className="rounded bg-white/10 px-1.5">NEXT_PUBLIC_ADMIN_PASSWORD=…</code> in{" "}
+            <code className="rounded bg-white/10 px-1.5">.env.local</code>, then{" "}
+            <code className="rounded bg-white/10 px-1.5">npm run dev</code>.
+          </li>
+        </ul>
+        <p className="mt-6 text-xs text-[var(--color-muted)]">
+          Note: the password ships in the client bundle — use it as light access control only.
         </p>
       </div>
     );

@@ -16,6 +16,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Lets the build job read secrets stored on the github-pages *environment* (not only repo secrets)
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,9 +28,12 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /My-Portfolio
           NEXT_PUBLIC_SITE_URL: https://muhunami.github.io/My-Portfolio
-          # Optional: create repo secret ADMIN_PASSWORD to unlock /admin on the deployed site
-          NEXT_PUBLIC_ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
         run: |
+          # Prefer repository or environment secret named ADMIN_PASSWORD; fallback NEXT_PUBLIC_ADMIN_PASSWORD
+          export NEXT_PUBLIC_ADMIN_PASSWORD="${{ secrets.ADMIN_PASSWORD }}"
+          if [ -z "$NEXT_PUBLIC_ADMIN_PASSWORD" ]; then
+            export NEXT_PUBLIC_ADMIN_PASSWORD="${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD }}"
+          fi
           npm ci
           npm run build
       - uses: actions/upload-pages-artifact@v3
