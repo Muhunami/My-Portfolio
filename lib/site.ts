@@ -86,39 +86,6 @@ export const mapPins = [
   { id: "zan", label: "Zanzibar", coordinates: [39.2026, -6.1659] as [number, number] },
 ] as const;
 
-export const projects = [
-  {
-    id: "bloomly",
-    title: "Bloomly",
-    description:
-      "A unified community platform built to connect people, ideas, and opportunities through one ecosystem.",
-    stack: [] as const,
-    accent: "from-violet-500/25 to-fuchsia-500/15",
-    href: "#",
-    preview: "blog" as const,
-  },
-  {
-    id: "pro-ai",
-    title: "Pro AI",
-    description:
-      "An intelligent parking assistant system designed to ease parking struggles using AI-powered optimization and smart guidance.",
-    stack: [] as const,
-    accent: "from-blue-500/25 to-cyan-500/12",
-    href: "#",
-    preview: "web" as const,
-  },
-  {
-    id: "mirrai",
-    title: "MIRRAI",
-    description:
-      "A smart home mirror assistant designed to help with home activities, productivity, schedules, and daily life — inspired by Alexa and Google Home.",
-    stack: [] as const,
-    accent: "from-emerald-500/20 to-teal-500/12",
-    href: "#",
-    preview: "mirror" as const,
-  },
-] as const;
-
 export const skillBadges = [
   "Photography",
   "Creative Writing",
@@ -129,26 +96,43 @@ export const skillBadges = [
   "Innovation Thinking",
 ] as const;
 
+/** Clickable cards on /resume (Skills) → detail pages under /skills/[slug] */
 export const skillClusters = [
   {
-    id: "create",
-    title: "Create",
-    blurb: "Stories, images, and rhythm.",
-    items: ["Photography", "Creative Writing", "Song Writing", "Storytelling"],
-    accent: "from-violet-500/20 to-fuchsia-500/10",
+    id: "photography",
+    title: "Photography",
+    href: "/skills/photography",
+    accent: "from-fuchsia-500/20 to-violet-500/10",
+    blurb: "Still frames, light, and places worth remembering.",
+    items: [
+      "Composition & mood",
+      "Travel & street moments",
+      "Personal gallery — tap to explore",
+    ],
   },
   {
-    id: "build",
-    title: "Build",
-    blurb: "Systems, interfaces, and how things work.",
-    items: ["Problem Solving through System Design", "UI / Idea Creation"],
-    accent: "from-blue-500/20 to-cyan-500/10",
+    id: "creative-writing",
+    title: "Creative writting",
+    href: "/skills/creative-writing",
+    accent: "from-cyan-500/15 to-blue-500/10",
+    blurb: "Notes, essays, and lines that stuck.",
+    items: [
+      "Short reflections",
+      "Ideas in progress",
+      "Read excerpts — tap to explore",
+    ],
   },
   {
-    id: "think",
-    title: "Think",
-    blurb: "Direction and new angles.",
-    items: ["Innovation Thinking"],
-    accent: "from-emerald-500/15 to-teal-500/10",
+    id: "storytelling",
+    title: "Story telling",
+    href: "/skills/storytelling",
+    accent: "from-amber-500/15 to-rose-500/10",
+    blurb: "Video stories and narrative experiments on YouTube.",
+    items: [
+      "Essays in motion",
+      "Curated playlists of work",
+      "Watch & browse — tap to explore",
+    ],
   },
 ] as const;
+

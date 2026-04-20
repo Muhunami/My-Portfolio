@@ -40,7 +40,10 @@ export default function ResumePage() {
       <section className="mt-14 grid gap-6 lg:grid-cols-3">
         {skillClusters.map((cluster, idx) => (
           <ScrollReveal key={cluster.id} delay={idx * 0.05}>
-            <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)]/40 p-6 transition hover:border-white/15 sm:p-8">
+            <PageLink
+              href={cluster.href}
+              className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)]/40 p-6 transition hover:border-white/15 hover:shadow-[0_0_40px_rgba(91,108,255,0.08)] sm:p-8`}
+            >
               <div
                 className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${cluster.accent} opacity-50 transition group-hover:opacity-80`}
               />
@@ -63,8 +66,11 @@ export default function ResumePage() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-6 text-xs font-medium text-[var(--color-silver)] transition group-hover:text-white">
+                  Open showcase →
+                </p>
               </div>
-            </div>
+            </PageLink>
           </ScrollReveal>
         ))}
       </section>

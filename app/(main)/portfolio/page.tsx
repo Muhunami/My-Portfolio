@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ProjectCard } from "@/components/project-card";
-import { projects } from "@/lib/site";
+import { projectList } from "@/lib/project-details";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -24,12 +24,12 @@ export default function PortfolioPage() {
       </header>
 
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, idx) => (
+        {projectList.map((p, idx) => (
           <ScrollReveal key={p.id} delay={idx * 0.05}>
             <ProjectCard
               title={p.title}
-              description={p.description}
-              stack={p.stack}
+              description={p.cardDescription}
+              stack={[]}
               href={p.href}
               accent={p.accent}
               preview={p.preview}
