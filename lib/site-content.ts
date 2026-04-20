@@ -1,13 +1,5 @@
 import raw from "../public/site-content.json";
-import type { SiteContentV1 } from "@/lib/site-content-schema";
-
-function isSiteContentV1(x: unknown): x is SiteContentV1 {
-  return (
-    typeof x === "object" &&
-    x !== null &&
-    (x as { version?: unknown }).version === 1
-  );
-}
+import { isSiteContentV1, type SiteContentV1 } from "@/lib/site-content-schema";
 
 const dataUnknown: unknown = raw;
 

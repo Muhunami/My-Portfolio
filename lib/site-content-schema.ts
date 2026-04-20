@@ -1,7 +1,15 @@
 /**
- * Shape of `data/site-content.json` — single source of truth for site copy.
+ * Shape of `public/site-content.json` — single source of truth for site copy.
  * The admin UI edits this file; you commit the updated JSON and redeploy.
  */
+
+export function isSiteContentV1(x: unknown): x is SiteContentV1 {
+  return (
+    typeof x === "object" &&
+    x !== null &&
+    (x as { version?: unknown }).version === 1
+  );
+}
 
 export type SiteContentV1 = {
   version: 1;
