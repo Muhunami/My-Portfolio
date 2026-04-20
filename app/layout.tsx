@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { CursorGlow } from "@/components/cursor-glow";
 import { SiteShell } from "@/components/site-shell";
+import { getSiteContent } from "@/lib/site-content";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,31 +14,27 @@ const inter = Inter({
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://muhunami.github.io/My-Portfolio";
 
+const content = getSiteContent();
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Manuel Muhunami | Portfolio",
-    template: "%s — Manuel Muhunami",
+    default: content.seo.siteTitle,
+    template: content.seo.titleTemplate,
   },
-  description: "I love solving problems. Portfolio of Manuel Muhunami.",
-  keywords: [
-    "portfolio",
-    "Manuel Muhunami",
-    "computer science",
-    "Kenya",
-    "student",
-  ],
-  authors: [{ name: "Manuel Muhunami" }],
+  description: content.seo.defaultDescription,
+  keywords: [...content.seo.keywords],
+  authors: [{ name: content.site.name }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Manuel Muhunami | Portfolio",
-    description: "I love solving problems.",
+    title: content.seo.siteTitle,
+    description: content.seo.openGraphDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manuel Muhunami | Portfolio",
-    description: "I love solving problems.",
+    title: content.seo.siteTitle,
+    description: content.seo.twitterDescription,
   },
   robots: { index: true, follow: true },
 };

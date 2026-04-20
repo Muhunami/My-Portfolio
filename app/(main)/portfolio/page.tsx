@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ProjectCard } from "@/components/project-card";
 import { projectList } from "@/lib/project-details";
+import { portfolioPageCopy } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Bloomly, Pro AI, MIRRAI — selected work.",
+  description: portfolioPageCopy.metaDescription,
 };
 
 export default function PortfolioPage() {
@@ -13,13 +14,13 @@ export default function PortfolioPage() {
     <div className="mx-auto max-w-6xl">
       <header className="mx-auto max-w-3xl text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">
-          Projects
+          {portfolioPageCopy.eyebrow}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          Ideas turned into systems.
+          {portfolioPageCopy.title}
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
-          A few things I&apos;ve shaped — community, intelligence, and home.
+          {portfolioPageCopy.subtitle}
         </p>
       </header>
 

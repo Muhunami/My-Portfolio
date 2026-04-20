@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { skillBadges, skillClusters } from "@/lib/site";
+import { skillBadges, skillClusters, resumePageCopy } from "@/lib/site";
 import { withBase } from "@/lib/paths";
 import { PageLink } from "@/components/page-link";
 
 export const metadata: Metadata = {
   title: "Skills",
-  description: "Skills and strengths — Manuel Muhunami.",
+  description: resumePageCopy.metaDescription,
 };
 
 export default function ResumePage() {
@@ -17,13 +17,13 @@ export default function ResumePage() {
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">
-              Skills
+              {resumePageCopy.eyebrow}
             </p>
             <h1 className="mt-3 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              How I create & think
+              {resumePageCopy.title}
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--color-muted)]">
-              A map of what I practice — from visuals and words to systems and new ideas.
+              {resumePageCopy.subtitle}
             </p>
           </div>
           <a
@@ -31,7 +31,7 @@ export default function ResumePage() {
             download
             className="glass inline-flex w-fit shrink-0 items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
           >
-            Download résumé PDF
+            {resumePageCopy.downloadLabel}
             <span aria-hidden>↓</span>
           </a>
         </div>
@@ -78,7 +78,7 @@ export default function ResumePage() {
       <section className="mt-14">
         <ScrollReveal>
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
-            At a glance
+            {resumePageCopy.atAGlanceLabel}
           </p>
           <div className="flex flex-wrap gap-2">
             {skillBadges.map((s) => (
@@ -96,13 +96,13 @@ export default function ResumePage() {
       <ScrollReveal>
         <div className="glass mt-14 rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-8 text-center sm:p-10">
           <p className="text-sm text-[var(--color-muted)]">
-            Want to go deeper? Use the nav or reach out directly.
+            {resumePageCopy.bottomText}
           </p>
           <PageLink
             href="/contact"
             className="mt-6 inline-flex rounded-full bg-gradient-to-r from-[#5b6cff] to-[#8b5cf6] px-8 py-3 text-sm font-semibold text-white shadow-[0_0_40px_var(--color-glow)] transition hover:brightness-110"
           >
-            Contact
+            {resumePageCopy.bottomCta}
           </PageLink>
         </div>
       </ScrollReveal>

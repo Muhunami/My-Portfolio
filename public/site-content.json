@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "seo": {
+    "siteTitle": "Manuel Muhunami | Portfolio",
+    "titleTemplate": "%s — Manuel Muhunami",
+    "defaultDescription": "I love solving problems. Portfolio of Manuel Muhunami.",
+    "keywords": [
+      "portfolio",
+      "Manuel Muhunami",
+      "computer science",
+      "Kenya",
+      "student"
+    ],
+    "openGraphDescription": "I love solving problems.",
+    "twitterDescription": "I love solving problems."
+  },
+  "site": {
+    "name": "Manuel Muhunami",
+    "firstName": "Manuel",
+    "lastName": "Muhunami",
+    "initials": "MM",
+    "tagline": "I love solving problems.",
+    "email": "muhunanim@gmail.com",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/manuel-indombera/",
+      "github": "https://github.com/Muhunami",
+      "youtube": "https://www.youtube.com/@Manuhami",
+      "youtubeGazi": "https://www.youtube.com/@gaziai",
+      "twitter": "https://twitter.com",
+      "instagram": "https://instagram.com",
+      "whatsapp": "https://wa.me/10000000000"
+    },
+    "calendarUrl": "https://cal.com"
+  },
+  "footer": {
+    "quote": "Built with curiosity. Guided by vision."
+  },
+  "home": {
+    "heroEyebrow": "Calm. Observant. Innovator",
+    "primaryCta": "View My Work",
+    "secondaryCta": "Contact Me",
+    "currentFocus": {
+      "label": "Current focus",
+      "lead": "Building a unified community",
+      "highlight": "Bloomly"
+    },
+    "quoteSection": {
+      "label": "Quote",
+      "text": "“Imperfections are the perfection of life.”"
+    },
+    "intellectual": {
+      "eyebrow": "Intellectual",
+      "title": "Defining success by the trail I leave behind: the problems I’ve solved, the rivals I’ve outpaced, and the new questions I’m brave enough to ask."
+    },
+    "recognition": {
+      "eyebrow": "Recognition",
+      "title": "Awards & Milestones",
+      "subtitle": "A concise ledger of competitive craft, cultural distinction, and institutional trust."
+    },
+    "atlas": {
+      "eyebrow": "Atlas",
+      "title": "Places I’ve been to — where memory meets geography."
+    }
+  },
+  "about": {
+    "metaDescription": "About Manuel — story and education.",
+    "storyEyebrow": "Story",
+    "paragraphs": [
+      { "text": "Hi, I'm Manuel." },
+      {
+        "text": "I'm not really the type with crazy achievements — honestly, I'm simple. Basic in some ways. I just do what makes me happy."
+      },
+      {
+        "text": "Life isn't something I can sit down and figure out in one day, so I explore. I try new things, join competitions, step into unfamiliar spaces — just to understand life from different lenses and gain new perspectives."
+      },
+      {
+        "text": "Life is too short to spend it worrying. Live life. Take each day one step at a time."
+      },
+      {
+        "text": "And always remember: imperfections are the perfection of life.",
+        "tone": "silver"
+      },
+      {
+        "text": "I aspire to study Computer Science. I've always loved solving problems of any kind, but computers fascinated me early. They feel powerful — capable of solving so many of the issues people face daily."
+      },
+      {
+        "text": "My dream is to build systems that solve real problems in society."
+      },
+      {
+        "text": "I also love writing — fiction, journaling, ideas, anything creative. Photography is another passion of mine, something I enjoy in my free time. I'm also learning video editing and exploring storytelling through visuals."
+      },
+      {
+        "text": "To be honest, school can sometimes feel limiting. The structure feels repetitive, and I often think learning could be designed in a better way. But even then, I still give my best and keep pushing."
+      },
+      { "text": "Wishing you all the best.", "tone": "silver" }
+    ],
+    "educationEyebrow": "Education",
+    "education": [
+      {
+        "school": "The Stepping Stones Elementary School",
+        "line": "Graduated Primary School",
+        "detail": "KCPE Score: 397"
+      },
+      {
+        "school": "Light Academy Nairobi",
+        "line": "High School Student",
+        "detail": "Graduating in 2027"
+      }
+    ]
+  },
+  "insights": {
+    "metaDescription": "What inspires Manuel — learning from creators who raise the bar.",
+    "eyebrow": "Insights",
+    "title": "People who push me forward",
+    "paragraphBeforeHighlight": "I'm deeply motivated by the YouTuber ",
+    "highlightName": "Gazi J",
+    "paragraphAfterHighlight": ". Her work in computer science pushes me to work harder, think bigger, and hopefully one day reach that level of excellence.",
+    "youtubeButtonLabel": "Gazi J on YouTube",
+    "closingLineBeforeContact": "I'd love to hear what inspires you too."
+  },
+  "contactPage": {
+    "metaDescription": "Get in touch with Manuel Muhunami.",
+    "eyebrow": "Contact",
+    "title": "Let's talk",
+    "subtitle": "Email, LinkedIn, or YouTube — pick what feels natural.",
+    "sidebarEyebrow": "Direct",
+    "linkedinDisplay": "linkedin.com/in/manuel-indombera",
+    "youtubeDisplay": "@Manuhami"
+  },
+  "portfolioPage": {
+    "metaDescription": "Bloomly, Park AI, MIRRAI — selected work.",
+    "eyebrow": "Projects",
+    "title": "Ideas turned into systems.",
+    "subtitle": "A few things I've shaped — community, intelligence, and home."
+  },
+  "resumePage": {
+    "metaDescription": "Skills and strengths — Manuel Muhunami.",
+    "eyebrow": "Skills",
+    "title": "How I create & think",
+    "subtitle": "A map of what I practice — from visuals and words to systems and new ideas.",
+    "downloadLabel": "Download résumé PDF",
+    "atAGlanceLabel": "At a glance",
+    "bottomText": "Want to go deeper? Use the nav or reach out directly.",
+    "bottomCta": "Contact"
+  },
+  "awardsDetailed": [
+    {
+      "year": "2026",
+      "lines": [
+        "Best in Art & Music — World Scholar’s Cup",
+        "Top Individual Category Honors"
+      ]
+    },
+    {
+      "year": "2026",
+      "lines": [
+        "Team Overall #1 Qualifier — World Scholar’s Cup",
+        "Highest Ranked Qualifying Team"
+      ]
+    },
+    {
+      "year": "2025",
+      "lines": [
+        "IFLC Global Cultural Performer",
+        "Represented Kenya at the International Festival of Language and Culture, performing at the Athanæum Center of Thought and Culture"
+      ]
+    },
+    {
+      "year": "2025",
+      "lines": [
+        "SOCHUM Representative (Benin)",
+        "Model United Nations Delegation"
+      ]
+    },
+    {
+      "year": "2024",
+      "lines": [
+        "22nd Best International Speaker",
+        "International African Debate Academy"
+      ]
+    },
+    {
+      "year": "2024",
+      "lines": [
+        "U.S. Academic Exposure Tour",
+        "Visited Harvard University, Yale University, Columbia University, and Massachusetts Institute of Technology"
+      ]
+    },
+    {
+      "year": "2024",
+      "lines": [
+        "Community Service Recognition",
+        "Orphanage Outreach, Elderly Home Visits & Jomo Kenyatta Beach Clean-up"
+      ]
+    },
+    {
+      "year": "2024",
+      "lines": [
+        "Academic Portfolio Development",
+        "Personal GitHub Portfolio Project"
+      ]
+    }
+  ],
+  "mapPins": [
+    {
+      "id": "nyc",
+      "label": "New York",
+      "coordinates": [-74.006, 40.7128]
+    },
+    {
+      "id": "bos",
+      "label": "Boston",
+      "coordinates": [-71.0589, 42.3601]
+    },
+    {
+      "id": "ct",
+      "label": "Connecticut",
+      "coordinates": [-72.6734, 41.7658]
+    },
+    {
+      "id": "mia",
+      "label": "Miami",
+      "coordinates": [-80.1918, 25.7617]
+    },
+    {
+      "id": "orl",
+      "label": "Orlando",
+      "coordinates": [-81.3792, 28.5383]
+    },
+    {
+      "id": "il",
+      "label": "Illinois",
+      "coordinates": [-87.6298, 41.8781]
+    },
+    {
+      "id": "ad",
+      "label": "Abu Dhabi",
+      "coordinates": [54.3773, 24.4539]
+    },
+    {
+      "id": "dxb",
+      "label": "Dubai",
+      "coordinates": [55.2708, 25.2048]
+    },
+    {
+      "id": "zan",
+      "label": "Zanzibar",
+      "coordinates": [39.2026, -6.1659]
+    }
+  ],
+  "skillBadges": [
+    "Photography",
+    "Creative Writing",
+    "Problem Solving through System Design",
+    "Song Writing",
+    "UI / Idea Creation",
+    "Storytelling",
+    "Innovation Thinking"
+  ],
+  "skillClusters": [
+    {
+      "id": "photography",
+      "title": "Photography",
+      "href": "/skills/photography",
+      "accent": "from-fuchsia-500/20 to-violet-500/10",
+      "blurb": "Still frames, light, and places worth remembering.",
+      "items": [
+        "Composition & mood",
+        "Travel & street moments",
+        "Personal gallery — tap to explore"
+      ]
+    },
+    {
+      "id": "creative-writing",
+      "title": "Creative writting",
+      "href": "/skills/creative-writing",
+      "accent": "from-cyan-500/15 to-blue-500/10",
+      "blurb": "Notes, essays, and lines that stuck.",
+      "items": [
+        "Short reflections",
+        "Ideas in progress",
+        "Read excerpts — tap to explore"
+      ]
+    },
+    {
+      "id": "storytelling",
+      "title": "Story telling",
+      "href": "/skills/storytelling",
+      "accent": "from-amber-500/15 to-rose-500/10",
+      "blurb": "Video stories and narrative experiments on YouTube.",
+      "items": [
+        "Essays in motion",
+        "Curated playlists of work",
+        "Watch & browse — tap to explore"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "bloomly",
+      "title": "Bloomly",
+      "subtitle": "The platform where people grow together.",
+      "status": "in progress",
+      "preview": "blog",
+      "accent": "from-violet-500/25 to-fuchsia-500/15",
+      "cardDescription": "A unified community where people connect to grow socially, academically, creatively, and professionally.",
+      "href": "/portfolio/bloomly"
+    },
+    {
+      "id": "park-ai",
+      "title": "Park AI",
+      "subtitle": "Smarter parking, less circling, calmer arrivals.",
+      "status": "in progress",
+      "preview": "web",
+      "accent": "from-blue-500/25 to-cyan-500/12",
+      "cardDescription": "An intelligent parking assistant that uses AI to guide drivers to the best spot with less stress.",
+      "href": "/portfolio/park-ai"
+    },
+    {
+      "id": "mirrai",
+      "title": "MIRRAI",
+      "subtitle": "Your day, reflected intelligently.",
+      "status": "in progress",
+      "preview": "mirror",
+      "accent": "from-emerald-500/20 to-teal-500/12",
+      "cardDescription": "A smart mirror that blends voice, calendar, and ambient UI for mornings that feel composed.",
+      "href": "/portfolio/mirrai"
+    }
+  ],
+  "projectLongForm": {
+    "bloomly": {
+      "tagline": "Bloomly is a unified community where people come together to grow socially, academically, creatively, and professionally.",
+      "paragraphs": [
+        "It’s a space designed to help individuals “bloom” through meaningful connections, shared resources, events, mentorship, and collaboration.",
+        "The name Bloomly gives the feeling of progress, freshness, positivity, and becoming something greater. If positioned strongly, it could be seen as: the platform where people grow together."
+      ],
+      "pillars": [
+        {
+          "title": "Networking",
+          "text": "Meet like-minded people across interests and cities."
+        },
+        {
+          "title": "Student opportunities",
+          "text": "Internships, competitions, scholarships — surfaced in one place."
+        },
+        {
+          "title": "Creative spaces",
+          "text": "Showcase art, writing, projects, and ideas — not just résumés."
+        },
+        {
+          "title": "Communities",
+          "text": "Interest groups, schools, cities, youth circles — real belonging."
+        },
+        {
+          "title": "Growth tools",
+          "text": "Mentorship, goal tracking, and learning resources that feel human."
+        },
+        {
+          "title": "Events",
+          "text": "Local meetups, debates, hackathons, workshops — show up and level up."
+        }
+      ]
+    },
+    "park-ai": {
+      "tagline": "Park AI turns parking lots into calmer systems.",
+      "paragraphs": [
+        "Urban drivers waste time circling blocks. Park AI is an intelligent assistant that combines occupancy signals, routing, and simple guidance so you spend less time searching and more time arriving.",
+        "The focus is practical: fewer wrong turns, clearer expectations, and a product that feels invisible when it works — like good infrastructure should.",
+        "Under the hood, the vision layers computer vision or sensor fusion (depending on deployment), optimization for stall assignment, and a calm interface — whether that’s a mobile companion or a dashboard for venues."
+      ],
+      "pillars": [
+        {
+          "title": "Guidance",
+          "text": "Turn-by-turn style suggestions toward available capacity."
+        },
+        {
+          "title": "Prediction",
+          "text": "Models that learn peak times and event-driven surges."
+        },
+        {
+          "title": "Venues",
+          "text": "Tools for campuses, malls, and cities to reduce congestion."
+        }
+      ]
+    },
+    "mirrai": {
+      "tagline": "MIRRAI is a smart mirror for the rhythm of your day.",
+      "paragraphs": [
+        "Inspired by the idea of ambient assistants, MIRRAI lives where you already look — your reflection — and keeps the noise low. Weather, calendar, reminders, and quick prompts appear in a glanceable layer so you don’t have to open five apps before breakfast.",
+        "It’s not about replacing Alexa or Google Home — it’s about a dedicated surface for mornings and wind-downs: voice when you want it, visuals when you don’t, and privacy-minded defaults (local processing where possible).",
+        "Long term, MIRRAI could tie into wellness routines, focus timers, and household routines — the mirror as a neutral, beautiful hub instead of another screen on your desk."
+      ],
+      "pillars": [
+        {
+          "title": "Mirror-first UI",
+          "text": "Typography and motion tuned for arm’s length, not phone distance."
+        },
+        {
+          "title": "Voice + touch",
+          "text": "Quick commands for when your hands are full."
+        },
+        {
+          "title": "Day modes",
+          "text": "Morning focus, evening wind-down — different densities of information."
+        }
+      ]
+    }
+  },
+  "skillShowcase": {
+    "photography": {
+      "title": "Photography",
+      "subtitle": "Frames, light, and places I’ve stood still for.",
+      "intro": "A gallery grid — swap the URLs below for your own files in public/ or keep these placeholders while you curate.",
+      "images": [
+        {
+          "src": "https://picsum.photos/seed/bloom1/900/700",
+          "alt": "Photography sample 1",
+          "caption": "Golden hour — replace with your shot"
+        },
+        {
+          "src": "https://picsum.photos/seed/bloom2/900/700",
+          "alt": "Photography sample 2",
+          "caption": "Street rhythm — replace with your shot"
+        },
+        {
+          "src": "https://picsum.photos/seed/bloom3/800/900",
+          "alt": "Photography sample 3",
+          "caption": "Portrait space — replace with your shot"
+        }
+      ]
+    },
+    "creative-writing": {
+      "title": "Creative writting",
+      "subtitle": "Notes, essays, and lines that stuck.",
+      "intro": "Short excerpts and ideas — edit or replace with your real pieces.",
+      "pieces": [
+        {
+          "title": "On imperfection",
+          "excerpt": "Imperfections are the perfection of life — a reminder that growth rarely looks linear from the inside."
+        },
+        {
+          "title": "Letters to future focus",
+          "excerpt": "Write the one sentence you want future-you to remember on a hard day. Keep it somewhere visible."
+        },
+        {
+          "title": "Why curiosity scales",
+          "excerpt": "Curiosity compounds when you protect time for it — even twenty minutes a week changes what you notice."
+        }
+      ]
+    },
+    "storytelling": {
+      "title": "Story telling",
+      "subtitle": "Video essays and moments — YouTube as my story shelf.",
+      "intro": "Paste your video IDs from YouTube (the part after v= in the URL) in the site content JSON.",
+      "videos": [
+        {
+          "title": "Featured story",
+          "videoId": "",
+          "note": "Set videoId to your first YouTube video ID."
+        },
+        {
+          "title": "Another chapter",
+          "videoId": "",
+          "note": "Optional second video."
+        }
+      ]
+    }
+  }
+}

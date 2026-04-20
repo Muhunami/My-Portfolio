@@ -1,24 +1,11 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { site } from "@/lib/site";
+import { site, aboutPage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${site.firstName} — story and education.`,
+  description: aboutPage.metaDescription,
 };
-
-const educationCards = [
-  {
-    school: "The Stepping Stones Elementary School",
-    line: "Graduated Primary School",
-    detail: "KCPE Score: 397",
-  },
-  {
-    school: "Light Academy Nairobi",
-    line: "High School Student",
-    detail: "Graduating in 2027",
-  },
-] as const;
 
 export default function AboutPage() {
   return (
@@ -33,44 +20,26 @@ export default function AboutPage() {
         <ScrollReveal>
           <div className="glass rounded-[2rem] p-8 sm:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
-              Story
+              {aboutPage.storyEyebrow}
             </p>
             <div className="mt-6 space-y-5 text-base leading-relaxed text-[var(--color-muted)]">
-              <p>Hi, I&apos;m Manuel.</p>
-              <p>
-                I&apos;m not really the type with crazy achievements — honestly, I&apos;m
-                simple. Basic in some ways. I just do what makes me happy.
-              </p>
-              <p>
-                Life isn&apos;t something I can sit down and figure out in one day, so I
-                explore. I try new things, join competitions, step into unfamiliar spaces —
-                just to understand life from different lenses and gain new perspectives.
-              </p>
-              <p>
-                Life is too short to spend it worrying. Live life. Take each day one step
-                at a time.
-              </p>
-              <p className="text-[var(--color-silver)]">
-                And always remember: imperfections are the perfection of life.
-              </p>
-              <p>
-                I aspire to study Computer Science. I&apos;ve always loved solving problems
-                of any kind, but computers fascinated me early. They feel powerful —
-                capable of solving so many of the issues people face daily.
-              </p>
-              <p>My dream is to build systems that solve real problems in society.</p>
-              <p>
-                I also love writing — fiction, journaling, ideas, anything creative.
-                Photography is another passion of mine, something I enjoy in my free
-                time. I&apos;m also learning video editing and exploring storytelling
-                through visuals.
-              </p>
-              <p>
-                To be honest, school can sometimes feel limiting. The structure feels
-                repetitive, and I often think learning could be designed in a better way.
-                But even then, I still give my best and keep pushing.
-              </p>
-              <p className="pt-2 text-[var(--color-silver)]">Wishing you all the best.</p>
+              {aboutPage.paragraphs.map((para, i) => {
+                const isLast = i === aboutPage.paragraphs.length - 1;
+                return (
+                  <p
+                    key={i}
+                    className={
+                      para.tone === "silver"
+                        ? isLast
+                          ? "pt-2 text-[var(--color-silver)]"
+                          : "text-[var(--color-silver)]"
+                        : undefined
+                    }
+                  >
+                    {para.text}
+                  </p>
+                );
+              })}
             </div>
           </div>
         </ScrollReveal>
@@ -79,10 +48,10 @@ export default function AboutPage() {
       <section className="mt-16">
         <ScrollReveal>
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
-            Education
+            {aboutPage.educationEyebrow}
           </p>
           <div className="grid gap-5 sm:grid-cols-2">
-            {educationCards.map((card) => (
+            {aboutPage.education.map((card) => (
               <div
                 key={card.school}
                 className="glass flex h-full flex-col rounded-3xl p-6 transition hover:border-white/15"

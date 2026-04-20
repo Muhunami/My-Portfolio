@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ContactForm } from "@/components/contact-form";
-import { site } from "@/lib/site";
+import { site, contactPageCopy } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Manuel Muhunami.",
+  description: contactPageCopy.metaDescription,
 };
 
 export default function ContactPage() {
@@ -13,13 +13,13 @@ export default function ContactPage() {
     <div className="mx-auto max-w-6xl">
       <header className="mx-auto max-w-3xl text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">
-          Contact
+          {contactPageCopy.eyebrow}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          Let&apos;s talk
+          {contactPageCopy.title}
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
-          Email, LinkedIn, or YouTube — pick what feels natural.
+          {contactPageCopy.subtitle}
         </p>
       </header>
 
@@ -34,7 +34,7 @@ export default function ContactPage() {
           <ScrollReveal delay={0.06}>
             <div className="glass rounded-3xl p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                Direct
+                {contactPageCopy.sidebarEyebrow}
               </p>
               <ul className="mt-6 space-y-5 text-sm">
                 <li>
@@ -58,7 +58,7 @@ export default function ContactPage() {
                     rel="noreferrer"
                     className="mt-1 block break-all text-[var(--color-silver)] transition hover:text-white"
                   >
-                    linkedin.com/in/manuel-indombera
+                    {contactPageCopy.linkedinDisplay}
                   </a>
                 </li>
                 <li>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                     rel="noreferrer"
                     className="mt-1 block text-[var(--color-silver)] transition hover:text-white"
                   >
-                    @Manuhami
+                    {contactPageCopy.youtubeDisplay}
                   </a>
                 </li>
               </ul>

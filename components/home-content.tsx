@@ -5,7 +5,7 @@ import { HeroBackground } from "@/components/hero-background";
 import { SocialDock } from "@/components/social-dock";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { site, awardsDetailed } from "@/lib/site";
+import { site, awardsDetailed, home } from "@/lib/site";
 import { WorldMap } from "@/components/world-map";
 
 export function HomeContent() {
@@ -17,7 +17,7 @@ export function HomeContent() {
         <HeroBackground />
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center sm:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-muted)]">
-            Calm. Observant. Innovator
+            {home.heroEyebrow}
           </p>
           <h1 className="mt-6 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
             {site.name}
@@ -31,13 +31,13 @@ export function HomeContent() {
               href="/portfolio"
               className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-[var(--color-ink)] shadow-[0_20px_60px_rgba(255,255,255,0.12)] transition hover:-translate-y-0.5 sm:w-auto"
             >
-              View My Work
+              {home.primaryCta}
             </PageLink>
             <PageLink
               href="/contact"
               className="glass inline-flex w-full items-center justify-center rounded-full px-8 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 sm:w-auto"
             >
-              Contact Me
+              {home.secondaryCta}
             </PageLink>
           </div>
         </div>
@@ -46,20 +46,22 @@ export function HomeContent() {
           <div className="glass grid gap-8 rounded-3xl p-6 sm:p-8 lg:grid-cols-2">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
-                Current focus
+                {home.currentFocus.label}
               </p>
               <p className="mt-3 text-lg font-medium leading-relaxed text-[var(--color-silver)]">
-                Building a unified community{" "}
-                <span className="gradient-text font-semibold">Bloomly</span>
+                {home.currentFocus.lead}{" "}
+                <span className="gradient-text font-semibold">
+                  {home.currentFocus.highlight}
+                </span>
               </p>
             </div>
             <div className="relative border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
               <div className="pointer-events-none absolute -left-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-white/20 to-transparent lg:block" />
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
-                Quote
+                {home.quoteSection.label}
               </p>
               <p className="mt-4 font-[family-name:var(--font-clash)] text-xl leading-snug text-white">
-                “Imperfections are the perfection of life.”
+                {home.quoteSection.text}
               </p>
             </div>
           </div>
@@ -69,8 +71,8 @@ export function HomeContent() {
       <section className="mx-auto mt-20 max-w-6xl">
         <ScrollReveal>
           <SectionHeading
-            eyebrow="Intellectual"
-            title="Defining success by the trail I leave behind: the problems I’ve solved, the rivals I’ve outpaced, and the new questions I’m brave enough to ask."
+            eyebrow={home.intellectual.eyebrow}
+            title={home.intellectual.title}
           />
         </ScrollReveal>
       </section>
@@ -79,14 +81,13 @@ export function HomeContent() {
         <ScrollReveal>
           <div className="mb-10 max-w-3xl">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
-              Recognition
+              {home.recognition.eyebrow}
             </p>
             <h2 className="font-[family-name:var(--font-clash)] text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Awards & Milestones
+              {home.recognition.title}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
-              A concise ledger of competitive craft, cultural distinction, and
-              institutional trust.
+              {home.recognition.subtitle}
             </p>
           </div>
         </ScrollReveal>
@@ -126,8 +127,8 @@ export function HomeContent() {
       <section className="mx-auto mt-24 max-w-6xl">
         <ScrollReveal>
           <SectionHeading
-            eyebrow="Atlas"
-            title="Places I’ve been to — where memory meets geography."
+            eyebrow={home.atlas.eyebrow}
+            title={home.atlas.title}
           />
           <WorldMap />
         </ScrollReveal>

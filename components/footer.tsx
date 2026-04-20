@@ -1,6 +1,6 @@
 "use client";
 
-import { site } from "@/lib/site";
+import { site, footerCopy } from "@/lib/site";
 import { withBase, pageHref } from "@/lib/paths";
 
 export function Footer() {
@@ -17,7 +17,7 @@ export function Footer() {
             {site.tagline}
           </p>
           <p className="mt-6 text-sm italic text-[var(--color-silver)]/90">
-            Built with curiosity. Guided by vision.
+            {footerCopy.quote}
           </p>
         </div>
         <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">

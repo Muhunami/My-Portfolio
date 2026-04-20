@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { PageLink } from "@/components/page-link";
-import { site } from "@/lib/site";
+import { site, insightsPage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Insights",
-  description: "What inspires Manuel — learning from creators who raise the bar.",
+  description: insightsPage.metaDescription,
 };
 
 export default function BlogIndexPage() {
@@ -13,20 +13,21 @@ export default function BlogIndexPage() {
     <div className="mx-auto max-w-3xl">
       <header className="text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">
-          Insights
+          {insightsPage.eyebrow}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-clash)] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          People who push me forward
+          {insightsPage.title}
         </h1>
       </header>
 
       <ScrollReveal>
         <div className="glass mt-14 rounded-[2rem] p-8 sm:p-10">
           <p className="text-lg leading-relaxed text-[var(--color-muted)]">
-            I&apos;m deeply motivated by the YouTuber{" "}
-            <span className="text-[var(--color-silver)]">Gazi J</span>. Her work in
-            computer science pushes me to work harder, think bigger, and hopefully one day
-            reach that level of excellence.
+            {insightsPage.paragraphBeforeHighlight}
+            <span className="text-[var(--color-silver)]">
+              {insightsPage.highlightName}
+            </span>
+            {insightsPage.paragraphAfterHighlight}
           </p>
           <div className="mt-10">
             <a
@@ -38,7 +39,7 @@ export default function BlogIndexPage() {
               <span className="text-red-400" aria-hidden>
                 ▶
               </span>
-              Gazi J on YouTube
+              {insightsPage.youtubeButtonLabel}
             </a>
           </div>
         </div>
@@ -48,7 +49,7 @@ export default function BlogIndexPage() {
         <PageLink href="/contact" className="text-[var(--color-silver)] hover:text-white">
           Contact me
         </PageLink>{" "}
-        — I&apos;d love to hear what inspires you too.
+        — {insightsPage.closingLineBeforeContact}
       </p>
     </div>
   );
