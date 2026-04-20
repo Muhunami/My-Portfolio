@@ -26,6 +26,8 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /My-Portfolio
           NEXT_PUBLIC_SITE_URL: https://muhunami.github.io/My-Portfolio
+          # Optional: create repo secret ADMIN_PASSWORD to unlock /admin on the deployed site
+          NEXT_PUBLIC_ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
         run: |
           npm ci
           npm run build
